@@ -9,17 +9,15 @@
 </template>
 
 <script setup>
-import { computed, inject } from 'vue';
+import { inject } from 'vue';
 import HeroSection from '@/components/home/HeroSection.vue';
 import ServicesSection from '@/components/home/ServicesSection.vue';
 import TechnologiesSection from '@/components/home/TechnologiesSection.vue';
 import TestimonialsSection from '@/components/home/TestimonialsSection.vue';
 import CtaSection from '@/components/home/CtaSection.vue';
 
-// Get current language from parent
 const currentLanguage = inject('currentLanguage');
 
-// Translations
 const translations = {
   es: {
     hero: {
@@ -62,21 +60,17 @@ const translations = {
       title: 'Tecnologías que usamos',
       subtitle: 'Herramientas de vanguardia para proyectos de calidad',
       techs: [
-        { name: 'HTML5', icon: '/icons/html5.svg' },
-        { name: 'CSS3', icon: '/icons/css3.svg' },
-        { name: 'JavaScript', icon: '/icons/javascript.svg' },
-        { name: 'Vue.js', icon: '/icons/vue.svg' },
-        { name: 'React', icon: '/icons/react.svg' },
-        { name: 'Node.js', icon: '/icons/nodejs.svg' },
-        { name: 'PHP', icon: '/icons/php.svg' },
-        { name: 'Laravel', icon: '/icons'  },
-        { name: 'PHP', icon: '/icons/php.svg' },
-        { name: 'Laravel', icon: '/icons/laravel.svg' },
-        { name: 'MySQL', icon: '/icons/mysql.svg' },
-        { name: 'PostgreSQL', icon: '/icons/postgresql.svg' },
-        { name: 'AWS', icon: '/icons/aws.svg' },
-        { name: 'Tailwind CSS', icon: '/icons/tailwind.svg' },
-        { name: 'Git', icon: '/icons/git.svg' }
+        { name: 'PHP', icon: '/src/icons/php_logo.svg' },
+        { name: 'Laravel', icon: '/src/icons/laravel_logo.svg' },
+        { name: 'MySQL', icon: '/src/icons/mysql_logo.svg' },
+        { name: 'JavaScript', icon: '/src/icons/javascript_logo.svg' },
+        { name: 'Vue.js', icon: '/src/icons/vue_logo.svg' },
+        { name: 'React', icon: '/src/icons/react_logo.svg' },
+        { name: 'Node.js', icon: '/src/icons/nodejs_logo.svg' },
+        { name: 'HTML5', icon: '/src/icons/html_logo.svg' },
+        { name: 'CSS3', icon: '/src/icons/css_logo.svg' },
+        { name: 'Tailwind CSS', icon: '/src/icons/tailwind_logo.svg' },
+        // { name: 'AWS', icon: '/src/icons/aws_logo.svg' },
       ]
     },
     testimonials: {
