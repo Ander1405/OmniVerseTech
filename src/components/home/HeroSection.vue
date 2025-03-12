@@ -14,7 +14,7 @@
         </p>
         <router-link 
           to="/contacto" 
-          class="inline-block px-8 py-4 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 animate-fade-in animation-delay-400"
+          class="inline-block px-8 py-4 bg-primary hover:bg-primary-dark text-white font-medium shadow-lg transform transition-all duration-300 hover:scale-105 animate-fade-in animation-delay-400 rounded-xl"
         >
           {{ content.cta }}
         </router-link>
@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-// Props
+
 const props = defineProps({
   content: {
     type: Object,

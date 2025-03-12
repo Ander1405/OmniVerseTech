@@ -9,7 +9,7 @@
       </p>
       <router-link 
         to="/contacto" 
-        class="inline-block px-8 py-4 bg-white text-primary hover:bg-gray-100 font-medium rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105"
+        class="inline-block px-8 py-4 bg-white text-primary hover:bg-gray-100 font-medium rounded-xl shadow-lg transform transition-all duration-300 hover:scale-105"
       >
         {{ content.buttonText }}
       </router-link>
