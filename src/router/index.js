@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import HomeView from "../components/views/HomeView.vue"
 import ServicesView from "../components/views/ServicesView.vue"
-// import AboutView from "../components/views/AboutView.vue"
+import AboutView from "../components/views/AboutView.vue"
 import ContactView from "../components/views/ContactView.vue"
 
 const routes = [
@@ -21,14 +21,14 @@ const routes = [
       title: "OmniVerse Tech - Servicios",
     },
   },
-  // {
-  //   path: "/nosotros",
-  //   name: "about",
-  //   component: AboutView,
-  //   meta: {
-  //     title: "OmniVerse Tech - Nosotros",
-  //   },
-  // },
+   {
+  path: "/nosotros",
+    name: "about",
+    component: AboutView,
+    meta: {
+     title: "OmniVerse Tech - Nosotros",
+  },
+  },
   {
     path: "/contacto",
     name: "contact",
