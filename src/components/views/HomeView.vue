@@ -19,90 +19,111 @@ import CtaSection from '@/components/home/CtaSection.vue';
 const currentLanguage = inject('currentLanguage');
 
 const translations = {
-  es: {
-    hero: {
-      title: 'Soluciones tecnológicas sin límites',
-      subtitle: 'Transformamos ideas en soluciones digitales innovadoras',
-      cta: 'Cotiza tu proyecto ahora'
-    },
-    services: {
-      title: 'Nuestros Servicios',
-      subtitle: 'Soluciones a medida para tus necesidades digitales',
-      items: [
-        {
-          id: 'landing',
-          title: 'Landing Pages',
-          price: '$100',
-          description: 'Páginas de aterrizaje optimizadas para conversión',
-          features: ['Diseño personalizado', 'Optimizado para móviles', 'Formulario de contacto'],
-          icon: 'layout'
+    es: {
+        hero: {
+          title: 'Soluciones tecnológicas sin límites',
+          subtitle: 'Transformamos ideas en soluciones digitales innovadoras',
+          cta: 'Cotiza tu proyecto ahora'
         },
-        {
-          id: 'web',
-          title: 'Páginas Web',
-          price: '$300',
-          description: 'Sitios web profesionales y responsivos',
-          features: ['Hasta 5 páginas', 'SEO básico', 'Responsive design'],
-          icon: 'globe'
-        },
-        {
-          id: 'app',
-          title: 'Aplicaciones Web',
-          price: 'desde $700',
-          description: 'Soluciones web personalizadas y escalables',
-          features: ['Funcionalidades personalizadas', 'Panel de administración', 'Integraciones API'],
-          icon: 'code'
-        }
-      ],
-      cta: 'Ver todos los servicios'
+        services: {
+            title: 'Nuestros Servicios',
+            subtitle: 'Soluciones a medida para tus necesidades digitales',
+            items: [
+                {
+                    id: 'webPage',
+                    title: 'Páginas Web desde',
+                    price: '$100',
+                    description: 'Páginas individuales diseñadas para presentar información clave de manera clara y accesible.',
+                    features: [
+                        'Diseño genérico',
+                        'Diseño responsivo',
+                        'Formulario de contacto'
+                    ],
+                    icon: 'layout'
+                },
+                {
+                    id: 'webSite',
+                    title: 'Sitios Web desde',
+                    price: '$300',
+                    description: 'Conjunto de páginas interconectadas que brindan una experiencia estructurada y profesional.',
+                    features: [
+                        'Diseño personalizado', 'Hasta 5 páginas web',
+                        'Diseño responsivo',
+                        'Gestión de contenido básico',
+                        'Soporte para múltiples idiomas',
+                        'Certificado SSL incluido'
+                    ],
+                    icon: 'globe'
+                },
+                {
+                    id: 'appsWeb',
+                    title: 'Aplicaciones Web desde',
+                    price: '$1,000',
+                    description: 'Aplicaciones web escalables para automatizar procesos y gestionar datos en tiempo real.',
+                    features: [
+                        'Funcionalidades personalizadas',
+                        'Panel de administración',
+                        'Base de datos optimizada',
+                        'Integraciones API',
+                        'Notificaciones en tiempo real',
+                        'Procesos en segundo plano',
+                        'Diseño de interfaz personalizada',
+                        'Interfaz moderna y dinámica – UI/UX',
+                        'Diseño responsivo para varios dispositivos'
+                    ],
+                    icon: 'code'
+                }
+          ],
+        cta: 'Ver todos los servicios'
     },
-    technologies: {
-      title: 'Stack tecnológico',
-      subtitle: 'Herramientas de vanguardia para proyectos de calidad',
-      techs: [
-        { name: 'PHP', icon: '/src/icons/php_logo.svg' },
-        { name: 'Laravel', icon: '/src/icons/laravel_logo.svg' },
-        { name: 'MySQL', icon: '/src/icons/mysql_logo.svg' },
-        { name: 'AWS', icon: '/src/icons/aws_logo.svg' },
-        { name: 'JavaScript', icon: '/src/icons/javascript_logo.svg' },
-        { name: 'Vue.js', icon: '/src/icons/vue_logo.svg' },
-        { name: 'React', icon: '/src/icons/react_logo.svg' },
-        { name: 'Node.js', icon: '/src/icons/nodejs_logo.svg' },
-        { name: 'HTML5', icon: '/src/icons/html_logo.svg' },
-        { name: 'CSS3', icon: '/src/icons/css_logo.svg' },
-        { name: 'Tailwind CSS', icon: '/src/icons/tailwind_logo.svg' },
-      ]
-    },
-    testimonials: {
-      title: 'Lo que dicen nuestros clientes',
-      subtitle: 'Historias de éxito que nos enorgullecen',
-      items: [
-        {
-          name: 'Carlos Rodríguez',
-          company: 'TechStart Inc.',
-          image: '/images/testimonial1.jpg',
-          text: 'OmniVerse Tech transformó nuestra idea en una aplicación web funcional en tiempo récord. Su equipo es altamente profesional y entregó exactamente lo que necesitábamos.'
+        technologies: {
+            title: 'Stack tecnológico',
+            subtitle: 'Herramientas de vanguardia para proyectos de calidad',
+            techs: [
+                { name: 'PHP', icon: '/src/icons/php_logo.svg' },
+                { name: 'Laravel', icon: '/src/icons/laravel_logo.svg' },
+                { name: 'Python', icon: '/src/icons/python_logo.svg' },
+                { name: 'MySQL', icon: '/src/icons/mysql_logo.svg' },
+                { name: 'AWS', icon: '/src/icons/aws_logo.svg' },
+                { name: 'JavaScript', icon: '/src/icons/javascript_logo.svg' },
+                { name: 'Vue.js', icon: '/src/icons/vue_logo.svg' },
+                { name: 'React', icon: '/src/icons/react_logo.svg' },
+                { name: 'Node.js', icon: '/src/icons/nodejs_logo.svg' },
+                { name: 'HTML5', icon: '/src/icons/html_logo.svg' },
+                { name: 'CSS3', icon: '/src/icons/css_logo.svg' },
+                { name: 'Tailwind CSS', icon: '/src/icons/tailwind_logo.svg' },
+            ]
         },
-        {
-          name: 'María González',
-          company: 'Innovate Solutions',
-          image: '/images/testimonial2.jpg',
-          text: 'Nuestra landing page ha incrementado nuestras conversiones en un 40%. El diseño es moderno y la experiencia de usuario es excepcional. ¡Totalmente recomendados!'
+        testimonials: {
+            title: 'Lo que dicen nuestros clientes',
+            subtitle: 'Historias de éxito que nos enorgullecen',
+            items: [
+            {
+              name: 'Carlos Rodríguez',
+              company: 'TechStart Inc.',
+              image: '/images/testimonial1.jpg',
+              text: 'OmniVerse Tech transformó nuestra idea en una aplicación web funcional en tiempo récord. Su equipo es altamente profesional y entregó exactamente lo que necesitábamos.'
+            },
+            {
+              name: 'María González',
+              company: 'Innovate Solutions',
+              image: '/images/testimonial2.jpg',
+              text: 'Nuestra landing page ha incrementado nuestras conversiones en un 40%. El diseño es moderno y la experiencia de usuario es excepcional. ¡Totalmente recomendados!'
+            },
+            {
+              name: 'Juan Pérez',
+              company: 'Digital Marketing Pro',
+              image: '/images/testimonial3.jpg',
+              text: 'Hemos trabajado con OmniVerse Tech en múltiples proyectos y siempre entregan soluciones de alta calidad. Su atención al detalle y soporte técnico son incomparables.'
+            }
+          ]
         },
-        {
-          name: 'Juan Pérez',
-          company: 'Digital Marketing Pro',
-          image: '/images/testimonial3.jpg',
-          text: 'Hemos trabajado con OmniVerse Tech en múltiples proyectos y siempre entregan soluciones de alta calidad. Su atención al detalle y soporte técnico son incomparables.'
-        }
-      ]
-    },
     cta: {
       title: '¿Listo para impulsar tu presencia digital?',
       subtitle: 'Contáctanos hoy y comencemos a trabajar en tu proyecto',
       buttonText: 'Solicitar cotización'
     }
-  },
+    },
   en: {
     hero: {
       title: 'Technology Solutions Without Limits',
@@ -114,27 +135,48 @@ const translations = {
       subtitle: 'Tailored solutions for your digital needs',
       items: [
         {
-          id: 'landing',
-          title: 'Landing Pages',
+          id: 'webPage',
+          title: 'Web Pages from',
           price: '$100',
-          description: 'Conversion-optimized landing pages',
-          features: ['Custom design', 'Mobile optimized', 'Contact form'],
+          description: 'Single pages designed to present key information clearly and accessibly.',
+          features: [
+            'Generic design',
+            'Responsive design',
+            'Contact form'
+          ],
           icon: 'layout'
         },
         {
-          id: 'web',
-          title: 'Websites',
+          id: 'webSite',
+          title: 'Websites from',
           price: '$300',
-          description: 'Professional and responsive websites',
-          features: ['Up to 5 pages', 'Basic SEO', 'Responsive design'],
+          description: 'Set of interconnected pages that provide a structured and professional experience.',
+          features: [
+            'Custom design',
+            'Up to 5 web pages',
+            'Responsive design',
+            'Basic content management',
+            'Multi-language support',
+            'SSL certificate included'
+          ],
           icon: 'globe'
         },
         {
-          id: 'app',
-          title: 'Web Applications',
-          price: 'from $700',
-          description: 'Custom and scalable web solutions',
-          features: ['Custom functionality', 'Admin panel', 'API integrations'],
+          id: 'appsWeb',
+          title: 'Web Applications from',
+          price: '$1,000',
+          description: 'Scalable web applications to automate processes and manage data in real-time.',
+          features: [
+            'Custom functionalities',
+            'Admin panel',
+            'Optimized database',
+            'API integrations',
+            'Real-time notifications',
+            'Background processes',
+            'Custom interface design',
+            'Modern and dynamic interface – UI/UX',
+            'Responsive design for multiple devices'
+          ],
           icon: 'code'
         }
       ],
