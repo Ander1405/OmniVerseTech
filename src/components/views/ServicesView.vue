@@ -14,10 +14,10 @@
         </section>
         <section class="py-16 bg-white dark:bg-secondary transition-colors duration-300">
             <div class="container mx-auto px-4">
-                <div class="max-w-6xl mx-auto">
+                <div class="max-w-full mx-auto">
                     <div v-for="(service, index) in translations[currentLanguage].services" :key="service.id" :id="service.id" class="mb-20">
-                        <div class="flex flex-col md:flex-row items-center" :class="{ 'md:flex-row-reverse': index % 2 !== 0 }">
-                            <div class="w-full md:w-1/2 mb-8 md:mb-0" :class="{ 'md:pl-12': index % 2 === 0, 'md:pr-12': index % 2 !== 0 }">
+                        <div class="flex flex-col md:flex-row items-start gap-8" :class="{ 'md:flex-row-reverse': index % 2 !== 0 }">
+                            <div class="w-full md:w-1/2 mb-8 md:mb-0 self-stretch flex flex-col justify-center" :class="{ 'md:pl-12': index % 2 === 0, 'md:pr-12': index % 2 !== 0 }">
                                 <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">{{ service.title }}</h2>
                                 <div class="flex items-center mb-6">
                                     <span class="text-2xl font-bold text-primary">{{ service.price }}</span>
@@ -32,13 +32,13 @@
                                         <span class="text-gray-700 dark:text-gray-300">{{ feature }}</span>
                                     </li>
                                 </ul>
-                                <router-link to="/contacto" class="inline-block px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors duration-300">
+                                <router-link to="/contacto" class="inline-block text-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl transition-colors duration-300">
                                     {{ translations[currentLanguage].ctaButton }}
                                 </router-link>
                             </div>
-                            <div class="w-full md:w-1/2">
-                                <div class="relative">
-                                    <img :src="service.image" :alt="service.title" class="w-full h-auto rounded-lg shadow-xl" loading="lazy" width="600" height="400" />
+                            <div class="w-full md:w-1/2 self-stretch">
+                                <div class="relative w-full h-full">
+                                    <img :src="service.image" :alt="service.title" class="w-full h-full object-cover rounded-xl shadow-xl" loading="lazy" />
                                     <div class="absolute -bottom-4 -right-4 w-full h-full bg-primary-light rounded-lg -z-10"></div>
                                 </div>
                             </div>
@@ -81,36 +81,33 @@ const translations = {
         ctaButton: 'Solicitar cotización',
         services: [
             {
-                id: 'landing',
-                title: 'Landing Pages',
+                id: 'webPage',
+                title: 'Páginas web',
                 price: '$100',
-                pricingNote: 'pago único',
-                description: 'Páginas de aterrizaje optimizadas para conversión, ideales para campañas específicas o presentación de productos. Incluyen diseño atractivo, formularios de contacto y optimización para dispositivos móviles.',
+                pricingNote: 'Pago único / Tiempo de entrega de 5 a 7 días habíles',
+                description: 'Páginas individuales diseñadas para presentar información clave de manera clara, accesible y visualmente atractiva. Optimizadas para captar la atención del usuario, mejorar la experiencia de navegación y facilitar la comprensión del contenido de forma rápida y efectiva.',
                 features: [
-                    'Diseño personalizado y atractivo',
-                    'Optimizado para dispositivos móviles',
-                    'Formulario de contacto funcional',
-                    'Optimización SEO básica',
-                    'Carga rápida y rendimiento optimizado',
-                    'Entrega en 5-7 días hábiles'
+                    'Diseño genérico',
+                    'Diseño responsivo',
+                    'Formulario de contacto'
                 ],
-                image: '/images/landing-page-service.webp'
+                image: '/src/images/services/webpage-cover.png'
             },
             {
-                id: 'web',
-                title: 'Páginas Web Corporativas',
+                id: 'webSite',
+                title: 'Sitios web',
                 price: '$300',
-                pricingNote: 'pago único',
-                description: 'Sitios web profesionales y responsivos para empresas que buscan establecer una presencia digital sólida. Incluyen múltiples páginas, diseño personalizado y optimización SEO.',
+                pricingNote: 'Según requerimientos / Tiempo de entrega de 2 a 4 semanas',
+                description: 'Sitios web profesionales y responsivos diseñados para empresas que buscan establecer una presencia digital sólida y atractiva. Incluyen múltiples páginas con diseño personalizado, optimización SEO para mejorar la visibilidad en buscadores y una estructura adaptable que garantiza una experiencia óptima en cualquier dispositivo.',
                 features: [
-                    'Hasta 5 páginas (Inicio, Servicios, Nosotros, etc.)',
-                    'Diseño responsivo para todos los dispositivos',
-                    'Optimización SEO completa',
-                    'Integración con Google Analytics',
-                    'Formulario de contacto y mapa de ubicación',
-                    'Entrega en 2-3 semanas'
+                    'Diseño personalizado',
+                    'Hasta 5 páginas web',
+                    'Diseño responsivo',
+                    'Gestión de contenido básico',
+                    'Soporte para múltiples idiomas',
+                    'Certificado SSL incluido'
                 ],
-                image: '/images/website-service.webp'
+                image: '/src/images/services/website.jpg'
             },
             {
                 id: 'app',
@@ -127,7 +124,7 @@ const translations = {
                     'Soporte técnico post-lanzamiento',
                     'Tiempo de entrega según complejidad'
                 ],
-                image: '/images/webapp-service.webp'
+                image: '/src/images/services/webaplications.jpg'
             }
             ],
         faqTitle: 'Preguntas Frecuentes',
@@ -149,7 +146,7 @@ const translations = {
                 question: '¿Ofrecen servicios de hosting y dominio?',
                 answer: 'Sí, podemos gestionar el hosting y dominio de su proyecto por un costo adicional. También podemos trabajar con proveedores que usted ya tenga contratados.'
             }
-            ]
+        ]
     },
     en: {
         title: 'Our Services',
@@ -170,7 +167,7 @@ const translations = {
                     'Fast loading and optimized performance',
                     'Delivery in 5-7 business days'
                 ],
-                image: '/images/landing-page-service.webp'
+                image: '/src/images/services/webpage-cover.png'
             },
             {
                 id: 'web',
@@ -186,7 +183,7 @@ const translations = {
                     'Contact form and location map',
                     'Delivery in 2-3 weeks'
                 ],
-                image: '/images/website-service.webp'
+                image: '/src/images/services/website.jpg'
             },
             {
                 id: 'app',
@@ -203,7 +200,7 @@ const translations = {
                     'Post-launch technical support',
                     'Delivery time based on complexity'
                 ],
-                image: '/images/webapp-service.webp'
+                image: '/src/images/services/webaplications.jpg'
             }
             ],
         faqTitle: 'Frequently Asked Questions',
