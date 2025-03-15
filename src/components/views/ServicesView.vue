@@ -1,74 +1,72 @@
 <template>
-  <main>
-    <section class="pt-32 pb-16 bg-gradient-to-br from-white to-gray-100 dark:from-secondary dark:to-secondary-dark transition-colors duration-300">
-      <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center">
-          <h1 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6">
-            {{ translations[currentLanguage].title }}
-          </h1>
-          <p class="text-xl text-gray-600 dark:text-gray-300">
-            {{ translations[currentLanguage].subtitle }}
-          </p>
-        </div>
-      </div>
-    </section>
-    
-    <section class="py-16 bg-white dark:bg-secondary transition-colors duration-300">
-      <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
-          <div v-for="(service, index) in translations[currentLanguage].services" :key="service.id" :id="service.id" class="mb-20">
-            <div class="flex flex-col md:flex-row items-center" :class="{ 'md:flex-row-reverse': index % 2 !== 0 }">
-              <div class="w-full md:w-1/2 mb-8 md:mb-0" :class="{ 'md:pl-12': index % 2 === 0, 'md:pr-12': index % 2 !== 0 }">
-                <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">{{ service.title }}</h2>
-                <div class="flex items-center mb-6">
-                  <span class="text-2xl font-bold text-primary">{{ service.price }}</span>
-                  <span class="ml-2 text-gray-500 dark:text-gray-400">{{ service.pricingNote }}</span>
+    <main>
+        <section class="pt-32 pb-16 bg-gradient-to-br from-white to-gray-100 dark:from-secondary dark:to-secondary-dark transition-colors duration-300">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6">
+                        {{ translations[currentLanguage].title }}
+                    </h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-300">
+                        {{ translations[currentLanguage].subtitle }}
+                    </p>
                 </div>
-                <p class="text-gray-600 dark:text-gray-300 mb-6">{{ service.description }}</p>
-                <ul class="space-y-3 mb-8">
-                  <li v-for="(feature, featureIndex) in service.features" :key="featureIndex" class="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span class="text-gray-700 dark:text-gray-300">{{ feature }}</span>
-                  </li>
-                </ul>
-                <router-link to="/contacto" class="inline-block px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors duration-300">
-                  {{ translations[currentLanguage].ctaButton }}
-                </router-link>
-              </div>
-              <div class="w-full md:w-1/2">
-                <div class="relative">
-                  <img :src="service.image" :alt="service.title" class="w-full h-auto rounded-lg shadow-xl" loading="lazy" width="600" height="400" />
-                  <div class="absolute -bottom-4 -right-4 w-full h-full bg-primary-light rounded-lg -z-10"></div>
+            </div>
+        </section>
+        <section class="py-16 bg-white dark:bg-secondary transition-colors duration-300">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div v-for="(service, index) in translations[currentLanguage].services" :key="service.id" :id="service.id" class="mb-20">
+                        <div class="flex flex-col md:flex-row items-center" :class="{ 'md:flex-row-reverse': index % 2 !== 0 }">
+                            <div class="w-full md:w-1/2 mb-8 md:mb-0" :class="{ 'md:pl-12': index % 2 === 0, 'md:pr-12': index % 2 !== 0 }">
+                                <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">{{ service.title }}</h2>
+                                <div class="flex items-center mb-6">
+                                    <span class="text-2xl font-bold text-primary">{{ service.price }}</span>
+                                    <span class="ml-2 text-gray-500 dark:text-gray-400">{{ service.pricingNote }}</span>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mb-6">{{ service.description }}</p>
+                                <ul class="space-y-3 mb-8">
+                                    <li v-for="(feature, featureIndex) in service.features" :key="featureIndex" class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span class="text-gray-700 dark:text-gray-300">{{ feature }}</span>
+                                    </li>
+                                </ul>
+                                <router-link to="/contacto" class="inline-block px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors duration-300">
+                                    {{ translations[currentLanguage].ctaButton }}
+                                </router-link>
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <div class="relative">
+                                    <img :src="service.image" :alt="service.title" class="w-full h-auto rounded-lg shadow-xl" loading="lazy" width="600" height="400" />
+                                    <div class="absolute -bottom-4 -right-4 w-full h-full bg-primary-light rounded-lg -z-10"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="py-16 bg-gray-50 dark:bg-secondary-dark transition-colors duration-300">
-      <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center">
-          <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">
-            {{ translations[currentLanguage].faqTitle }}
-          </h2>
-          <p class="text-xl text-gray-600 dark:text-gray-300 mb-12">
-            {{ translations[currentLanguage].faqSubtitle }}
-          </p>
-          
-          <div class="space-y-6 text-left">
-            <div v-for="(faq, index) in translations[currentLanguage].faqs" :key="index" class="bg-white dark:bg-secondary rounded-lg shadow-md p-6">
-              <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-3">{{ faq.question }}</h3>
-              <p class="text-gray-600 dark:text-gray-300">{{ faq.answer }}</p>
+        </section>
+        <section class="py-16 bg-gray-50 dark:bg-secondary-dark transition-colors duration-300">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">
+                        {{ translations[currentLanguage].faqTitle }}
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-12">
+                        {{ translations[currentLanguage].faqSubtitle }}
+                    </p>
+
+                    <div class="space-y-6 text-left">
+                        <div v-for="(faq, index) in translations[currentLanguage].faqs" :key="index" class="bg-white dark:bg-secondary rounded-lg shadow-md p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-3">{{ faq.question }}</h3>
+                            <p class="text-gray-600 dark:text-gray-300">{{ faq.answer }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+        </section>
+    </main>
 </template>
 
 <script setup>
