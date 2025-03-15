@@ -65,9 +65,28 @@
                     </p>
 
                     <div class="space-y-6 text-left">
-                        <div v-for="(faq, index) in translations[currentLanguage].faqs" :key="index" class="bg-white dark:bg-secondary rounded-lg shadow-md p-6">
-                            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-3">{{ faq.question }}</h3>
-                            <p class="text-gray-600 dark:text-gray-300">{{ faq.answer }}</p>
+                        <div v-for="(faq, index) in translations[currentLanguage].faqs" 
+                             :key="index" 
+                             class="bg-white dark:bg-secondary rounded-xl shadow-md overflow-hidden">
+                            <button 
+                                @click="toggleFaq(index)" 
+                                class="w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 dark:hover:bg-secondary-dark transition-colors duration-300">
+                                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">{{ faq.question }}</h3>
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    class="h-6 w-6 transform transition-transform duration-300" 
+                                    :class="{ 'rotate-180': openFaqs.has(index) }"
+                                    fill="none" 
+                                    viewBox="0 0 24 24" 
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div 
+                                v-show="openFaqs.has(index)" 
+                                class="px-6 pb-6">
+                                <p class="text-gray-600 dark:text-gray-300">{{ faq.answer }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -77,9 +96,19 @@
 </template>
 
 <script setup>
-import { inject } from 'vue';
+import { inject, ref } from 'vue';
 
 const currentLanguage = inject('currentLanguage');
+
+const openFaqs = ref(new Set());
+
+const toggleFaq = (index) => {
+    if (openFaqs.value.has(index)) {
+        openFaqs.value.delete(index);
+    } else {
+        openFaqs.value.add(index);
+    }
+};
 
 const translations = {
     es: {
@@ -139,19 +168,23 @@ const translations = {
         faqs: [
             {
                 question: '¿Cuánto tiempo toma desarrollar un proyecto?',
-                answer: 'Los tiempos de entrega varían según el tipo de proyecto. Las landing pages suelen estar listas en 5-7 días hábiles, los sitios web en 2-3 semanas, y las aplicaciones web dependen de la complejidad, generalmente entre 4-8 semanas.'
+                answer: 'Los tiempos de entrega varían según el tipo de proyecto. Las landing pages suelen estar listas en 5-7 días hábiles, los sitios web en 2-3 semanas, y las aplicaciones web dependen de la complejidad, generalmente entre 4-8 semanas.',
+                isOpen: false
             },
             {
                 question: '¿Qué incluye el mantenimiento de mi sitio web?',
-                answer: 'Nuestros planes de mantenimiento incluyen actualizaciones de seguridad, copias de seguridad regulares, soporte técnico, correcciones de errores y pequeñas modificaciones de contenido. Los planes se adaptan a las necesidades específicas de cada cliente.'
+                answer: 'Nuestros planes de mantenimiento incluyen actualizaciones de seguridad, copias de seguridad regulares, soporte técnico, correcciones de errores y pequeñas modificaciones de contenido. Los planes se adaptan a las necesidades específicas de cada cliente.',
+                isOpen: false
             },
             {
                 question: '¿Puedo actualizar mi sitio web por mi cuenta?',
-                answer: 'Sí, dependiendo del tipo de proyecto, podemos implementar un sistema de gestión de contenido (CMS) que le permitirá actualizar textos, imágenes y otros contenidos sin conocimientos técnicos.'
+                answer: 'Sí, dependiendo del tipo de proyecto, podemos implementar un sistema de gestión de contenido (CMS) que le permitirá actualizar textos, imágenes y otros contenidos sin conocimientos técnicos.',
+                isOpen: false
             },
             {
                 question: '¿Ofrecen servicios de hosting y dominio?',
-                answer: 'Sí, podemos gestionar el hosting y dominio de su proyecto por un costo adicional. También podemos trabajar con proveedores que usted ya tenga contratados.'
+                answer: 'Sí, podemos gestionar el hosting y dominio de su proyecto por un costo adicional. También podemos trabajar con proveedores que usted ya tenga contratados.',
+                isOpen: false
             }
         ]
     },
@@ -215,19 +248,23 @@ const translations = {
         faqs: [
             {
                 question: 'How long does it take to develop a project?',
-                answer: 'Delivery times vary depending on the type of project. Landing pages are usually ready in 5-7 business days, websites in 2-3 weeks, and web applications depend on complexity, generally between 4-8 weeks.'
+                answer: 'Delivery times vary depending on the type of project. Landing pages are usually ready in 5-7 business days, websites in 2-3 weeks, and web applications depend on complexity, generally between 4-8 weeks.',
+                isOpen: false
             },
             {
                 question: 'What does website maintenance include?',
-                answer: 'Our maintenance plans include security updates, regular backups, technical support, bug fixes, and minor content modifications. Plans are adapted to the specific needs of each client.'
+                answer: 'Our maintenance plans include security updates, regular backups, technical support, bug fixes, and minor content modifications. Plans are adapted to the specific needs of each client.',
+                isOpen: false
             },
             {
                 question: 'Can I update my website myself?',
-                answer: 'Yes, depending on the type of project, we can implement a content management system (CMS) that will allow you to update texts, images, and other content without technical knowledge.'
+                answer: 'Yes, depending on the type of project, we can implement a content management system (CMS) that will allow you to update texts, images, and other content without technical knowledge.',
+                isOpen: false
             },
             {
                 question: 'Do you offer hosting and domain services?',
-                answer: 'Yes, we can manage the hosting and domain of your project for an additional cost. We can also work with providers you already have contracted.'
+                answer: 'Yes, we can manage the hosting and domain of your project for an additional cost. We can also work with providers you already have contracted.',
+                isOpen: false
             }
         ]
     }
