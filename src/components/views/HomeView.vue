@@ -1,11 +1,11 @@
 <template>
-  <main>
-    <HeroSection :content="translations[currentLanguage].hero" />
-    <ServicesSection :content="translations[currentLanguage].services" />
-    <TechnologiesSection :content="translations[currentLanguage].technologies" />
-    <TestimonialsSection :content="translations[currentLanguage].testimonials" />
-    <CtaSection :content="translations[currentLanguage].cta" />
-  </main>
+    <main>
+        <HeroSection :content="translations[currentLanguage].hero" />
+        <ServicesSection :content="translations[currentLanguage].services" />
+        <TechnologiesSection :content="translations[currentLanguage].technologies" />
+        <TestimonialsSection :content="translations[currentLanguage].testimonials" />
+        <CtaSection :content="translations[currentLanguage].cta" />
+    </main>
 </template>
 
 <script setup>
