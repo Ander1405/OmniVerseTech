@@ -47,7 +47,8 @@ const translations = {
                     price: '$300',
                     description: 'Conjunto de páginas interconectadas que brindan una experiencia estructurada y profesional.',
                     features: [
-                        'Diseño personalizado', 'Hasta 5 páginas web',
+                        'Diseño personalizado',
+                        'Hasta 5 páginas web',
                         'Diseño responsivo',
                         'Gestión de contenido básico',
                         'Soporte para múltiples idiomas',
