@@ -32,15 +32,22 @@
                                         <span class="text-gray-700 dark:text-gray-300">{{ feature }}</span>
                                     </li>
                                 </ul>
-                                <router-link to="/contacto" class="inline-block text-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl transition-colors duration-300">
-                                    {{ translations[currentLanguage].ctaButton }}
-                                </router-link>
+                                <div class="hidden md:block w-full">
+                                    <router-link to="/contacto" class="block w-full text-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl transition-colors duration-300">
+                                        {{ translations[currentLanguage].ctaButton }}
+                                    </router-link>
+                                </div>
                             </div>
                             <div class="w-full md:w-1/2 self-stretch">
                                 <div class="relative w-full h-full">
                                     <img :src="service.image" :alt="service.title" class="w-full h-full object-cover rounded-xl shadow-xl" loading="lazy" />
                                     <div class="absolute -bottom-4 -right-4 w-full h-full bg-primary-light rounded-lg -z-10"></div>
                                 </div>
+                            </div>
+                            <div class="md:hidden w-full">
+                                <router-link to="/contacto" class="block text-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl transition-colors duration-300">
+                                    {{ translations[currentLanguage].ctaButton }}
+                                </router-link>
                             </div>
                         </div>
                     </div>
