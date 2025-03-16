@@ -54,7 +54,7 @@
                 </div>
             </div>
         </section>
-        <section class="py-16 bg-gray-50 dark:bg-secondary-dark transition-colors duration-300">
+        <section class="py-10 bg-gray-50 dark:bg-secondary-dark transition-colors duration-300">
             <div class="container mx-auto px-4">
                 <div class="max-w-3xl mx-auto text-center">
                     <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">
