@@ -19,7 +19,7 @@
         <div 
           v-for="(tech, index) in content.techs" 
           :key="tech.name"
-          class="flex flex-col items-center justify-center p-4 bg-white dark:bg-secondary rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+          class="flex flex-col items-center justify-center p-4 bg-white dark:bg-secondary rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
           :style="{ 'animation-delay': `${index * 0.1}s` }"
         >
           <img 
@@ -40,7 +40,6 @@
 <script setup>
 import { ref } from 'vue';
 
-// Props
 const props = defineProps({
   content: {
     type: Object,
@@ -48,17 +47,14 @@ const props = defineProps({
   }
 });
 
-// State
 const isVisible = ref(false);
 
-// Methods
 const onIntersect = (entries) => {
   if (entries[0].isIntersecting) {
     isVisible.value = true;
   }
 };
 
-// Custom directive for intersection observer
 const vIntersectionObserver = {
   mounted(el, binding) {
     const observer = new IntersectionObserver(binding.value.callback, binding.value.options);

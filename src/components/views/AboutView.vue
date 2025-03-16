@@ -1,0 +1,405 @@
+<template>
+    <main>
+      <section class="pt-32 pb-16 bg-gradient-to-br from-white to-gray-100 dark:from-secondary dark:to-secondary-dark transition-colors duration-300">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6">
+              {{ translations[currentLanguage].title }}
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300">
+              {{ translations[currentLanguage].subtitle }}
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="py-16 bg-white dark:bg-secondary transition-colors duration-300">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto">
+            <div class="w-full md:w-1/2 mb-10 md:mb-0 md:pr-10">
+              <div 
+                class="bg-gray-50 dark:bg-secondary-dark p-8 rounded-lg shadow-lg transform transition-all duration-500 hover:shadow-xl"
+                v-intersection-observer="{ callback: onIntersect, options: { threshold: 0.2 } }"
+                :class="{ 'animate-slide-in-left': isVisible }"
+              >
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">{{ translations[currentLanguage].mission.title }}</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                  {{ translations[currentLanguage].mission.text }}
+                </p>
+              </div>
+              
+              <div 
+                class="bg-gray-50 dark:bg-secondary-dark p-8 rounded-lg shadow-lg mt-8 transform transition-all duration-500 hover:shadow-xl"
+                v-intersection-observer="{ callback: onIntersect2, options: { threshold: 0.2 } }"
+                :class="{ 'animate-slide-in-left': isVisible2 }"
+              >
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">{{ translations[currentLanguage].vision.title }}</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                  {{ translations[currentLanguage].vision.text }}
+                </p>
+              </div>
+            </div>
+            
+            <div 
+              class="w-full md:w-1/2 relative"
+              v-intersection-observer="{ callback: onIntersect3, options: { threshold: 0.2 } }"
+              :class="{ 'animate-slide-in-right': isVisible3 }"
+            >
+              <div class="relative z-10 overflow-hidden rounded-lg shadow-xl">
+                
+              </div>
+              <div class="absolute -bottom-6 -left-6 w-full h-full bg-primary-light rounded-lg -z-10"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="py-16 bg-gray-50 dark:bg-secondary-dark transition-colors duration-300">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+              {{ translations[currentLanguage].team.title }}
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300">
+              {{ translations[currentLanguage].team.subtitle }}
+            </p>
+            <div class="w-20 h-1 bg-primary mx-auto mt-6"></div>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div 
+              v-for="(member, index) in translations[currentLanguage].team.members" 
+              :key="index"
+              class="bg-white dark:bg-secondary rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+              v-intersection-observer="{ callback: (entries) => onIntersectTeam(entries, index), options: { threshold: 0.2 } }"
+              :class="{ 'animate-fade-in': visibleTeam[index] }"
+              :style="{ 'animation-delay': `${index * 0.2}s` }"
+            >
+              <div class="relative overflow-hidden h-64">
+                <img 
+                  :src="member.image" 
+                  :alt="member.name" 
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">{{ member.name }}</h3>
+                <p class="text-primary font-medium mb-3">{{ member.position }}</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">{{ member.bio }}</p>
+                <div class="flex space-x-3">
+                  <a v-for="social in member.social" :key="social.name" :href="social.url" target="_blank" class="text-gray-500 hover:text-primary transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <template v-if="social.name === 'linkedin'">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                      </template>
+                      <template v-else-if="social.name === 'twitter'">
+                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                      </template>
+                      <template v-else-if="social.name === 'github'">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                      </template>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="py-16 bg-white dark:bg-secondary transition-colors duration-300">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+              {{ translations[currentLanguage].values.title }}
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300">
+              {{ translations[currentLanguage].values.subtitle }}
+            </p>
+            <div class="w-20 h-1 bg-primary mx-auto mt-6"></div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div 
+              v-for="(value, index) in translations[currentLanguage].values.items" 
+              :key="index"
+              class="bg-gray-50 dark:bg-secondary-dark rounded-xl shadow-lg p-6 text-center transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+              v-intersection-observer="{ callback: (entries) => onIntersectValues(entries, index), options: { threshold: 0.2 } }"
+              :class="{ 'animate-fade-in': visibleValues[index] }"
+              :style="{ 'animation-delay': `${index * 0.15}s` }"
+            >
+              <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6 mx-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <template v-if="value.icon === 'star'">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </template>
+                  <template v-else-if="value.icon === 'heart'">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </template>
+                  <template v-else-if="value.icon === 'users'">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </template>
+                  <template v-else-if="value.icon === 'shield'">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </template>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">{{ value.title }}</h3>
+              <p class="text-gray-600 dark:text-gray-300">{{ value.description }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </template>
+  
+  <script setup>
+  import { ref, inject } from 'vue';
+  
+  // Get current language from parent
+  const currentLanguage = inject('currentLanguage');
+  
+  // State for animations
+  const isVisible = ref(false);
+  const isVisible2 = ref(false);
+  const isVisible3 = ref(false);
+  const visibleTeam = ref({});
+  const visibleValues = ref({});
+  
+  // Methods
+  const onIntersect = (entries) => {
+    if (entries[0].isIntersecting) {
+      isVisible.value = true;
+    }
+  };
+  
+  const onIntersect2 = (entries) => {
+    if (entries[0].isIntersecting) {
+      isVisible2.value = true;
+    }
+  };
+  
+  const onIntersect3 = (entries) => {
+    if (entries[0].isIntersecting) {
+      isVisible3.value = true;
+    }
+  };
+  
+  const onIntersectTeam = (entries, index) => {
+    if (entries[0].isIntersecting) {
+      visibleTeam.value[index] = true;
+    }
+  };
+  
+  const onIntersectValues = (entries, index) => {
+    if (entries[0].isIntersecting) {
+      visibleValues.value[index] = true;
+    }
+  };
+  
+  // Custom directive for intersection observer
+  const vIntersectionObserver = {
+    mounted(el, binding) {
+      const observer = new IntersectionObserver(binding.value.callback, binding.value.options);
+      observer.observe(el);
+      el._observer = observer;
+    },
+    unmounted(el) {
+      if (el._observer) {
+        el._observer.disconnect();
+      }
+    }
+  };
+  
+  // Translations
+  const translations = {
+    es: {
+      title: 'Sobre Nosotros',
+      subtitle: 'Conoce quiénes somos y nuestra filosofía',
+      mission: {
+        title: 'Nuestra Misión',
+        text: 'En OmniVerse Tech, nuestra misión es impulsar la transformación digital de empresas y emprendedores, ofreciendo soluciones tecnológicas de vanguardia que maximicen su potencial en el mundo digital. Nos comprometemos a entregar productos de alta calidad, con un enfoque centrado en el usuario y resultados medibles.'
+      },
+      vision: {
+        title: 'Nuestra Visión',
+        text: 'Ser una empresa líder en el desarrollo de software y soluciones digitales, reconocida por nuestra excelencia, innovación y compromiso con el éxito de nuestros clientes. Aspiramos a transformar la manera en que las empresas interactúan con la tecnología, creando experiencias digitales que impulsen su crecimiento y competitividad.'
+      },
+      team: {
+        title: 'Nuestro Equipo',
+        subtitle: 'Profesionales apasionados por la tecnología',
+        members: [
+          {
+            name: 'Carlos Rodríguez',
+            position: 'CEO & Fundador',
+            bio: 'Con más de 10 años de experiencia en desarrollo web y emprendimiento digital. Apasionado por crear soluciones tecnológicas que resuelvan problemas reales.',
+            image: '/placeholder.svg?height=300&width=300',
+            social: [
+              { name: 'linkedin', url: 'https://linkedin.com' },
+              { name: 'twitter', url: 'https://twitter.com' }
+            ]
+          },
+          {
+            name: 'María González',
+            position: 'Directora de Diseño UX/UI',
+            bio: 'Especialista en diseño centrado en el usuario con experiencia en grandes proyectos. Su enfoque combina estética y funcionalidad para crear interfaces intuitivas.',
+            image: '/placeholder.svg?height=300&width=300',
+            social: [
+              { name: 'linkedin', url: 'https://linkedin.com' },
+              { name: 'twitter', url: 'https://twitter.com' }
+            ]
+          },
+          {
+            name: 'Juan Pérez',
+            position: 'Desarrollador Senior',
+            bio: 'Experto en tecnologías frontend y backend. Ha liderado el desarrollo de aplicaciones web complejas para clientes de diversos sectores.',
+            image: '/placeholder.svg?height=300&width=300',
+            social: [
+              { name: 'linkedin', url: 'https://linkedin.com' },
+              { name: 'github', url: 'https://github.com' }
+            ]
+          }
+        ]
+      },
+      values: {
+        title: 'Nuestros Valores',
+        subtitle: 'Principios que guían nuestro trabajo diario',
+        items: [
+          {
+            title: 'Excelencia',
+            description: 'Nos esforzamos por superar las expectativas en cada proyecto, con atención meticulosa a los detalles y un compromiso con la calidad.',
+            icon: 'star'
+          },
+          {
+            title: 'Innovación',
+            description: 'Exploramos constantemente nuevas tecnologías y enfoques para ofrecer soluciones creativas y de vanguardia.',
+            icon: 'heart'
+          },
+          {
+            title: 'Colaboración',
+            description: 'Trabajamos estrechamente con nuestros clientes, construyendo relaciones de confianza y comunicación transparente.',
+            icon: 'users'
+          },
+          {
+            title: 'Integridad',
+            description: 'Actuamos con honestidad y ética en todas nuestras interacciones, manteniendo los más altos estándares profesionales.',
+            icon: 'shield'
+          }
+        ]
+      }
+    },
+    en: {
+      title: 'About Us',
+      subtitle: 'Learn who we are and our philosophy',
+      mission: {
+        title: 'Our Mission',
+        text: 'At OmniVerse Tech, our mission is to drive the digital transformation of businesses and entrepreneurs, offering cutting-edge technological solutions that maximize their potential in the digital world. We are committed to delivering high-quality products, with a user-centered approach and measurable results.'
+      },
+      vision: {
+        title: 'Our Vision',
+        text: 'To be a leading company in software development and digital solutions, recognized for our excellence, innovation, and commitment to our clients\' success. We aspire to transform the way businesses interact with technology, creating digital experiences that drive their growth and competitiveness.'
+      },
+      team: {
+        title: 'Our Team',
+        subtitle: 'Professionals passionate about technology',
+        members: [
+          {
+            name: 'Carlos Rodriguez',
+            position: 'CEO & Founder',
+            bio: 'With over 10 years of experience in web development and digital entrepreneurship. Passionate about creating technological solutions that solve real problems.',
+            image: '/placeholder.svg?height=300&width=300',
+            social: [
+              { name: 'linkedin', url: 'https://linkedin.com' },
+              { name: 'twitter', url: 'https://twitter.com' }
+            ]
+          },
+          {
+            name: 'Maria Gonzalez',
+            position: 'UX/UI Design Director',
+            bio: 'Specialist in user-centered design with experience in large projects. Her approach combines aesthetics and functionality to create intuitive interfaces.',
+            image: '/placeholder.svg?height=300&width=300',
+            social: [
+              { name: 'linkedin', url: 'https://linkedin.com' },
+              { name: 'twitter', url: 'https://twitter.com' }
+            ]
+          },
+          {
+            name: 'Juan Perez',
+            position: 'Senior Developer',
+            bio: 'Expert in frontend and backend technologies. He has led the development of complex web applications for clients in various sectors.',
+            image: '/placeholder.svg?height=300&width=300',
+            social: [
+              { name: 'linkedin', url: 'https://linkedin.com' },
+              { name: 'github', url: 'https://github.com' }
+            ]
+          }
+        ]
+      },
+      values: {
+        title: 'Our Values',
+        subtitle: 'Principles that guide our daily work',
+        items: [
+          {
+            title: 'Excellence',
+            description: 'We strive to exceed expectations in every project, with meticulous attention to detail and a commitment to quality.',
+            icon: 'star'
+          },
+          {
+            title: 'Innovation',
+            description: 'We constantly explore new technologies and approaches to offer creative and cutting-edge solutions.',
+            icon: 'heart'
+          },
+          {
+            title: 'Collaboration',
+            description: 'We work closely with our clients, building relationships of trust and transparent communication.',
+            icon: 'users'
+          },
+          {
+            title: 'Integrity',
+            description: 'We act with honesty and ethics in all our interactions, maintaining the highest professional standards.',
+            icon: 'shield'
+          }
+        ]
+      }
+    }
+  };
+  </script>
+  
+  <style scoped>
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  </style>
+  
+  
