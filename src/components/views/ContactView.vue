@@ -152,13 +152,24 @@
 </template>
 
 <script setup>
-import { ref, reactive, inject } from 'vue';
+import { ref, reactive, inject, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+
 const currentLanguage = inject('currentLanguage');
+const route = useRoute();
+
 const form = reactive({
   name: '',
   email: '',
   service: '',
   message: ''
+});
+
+onMounted(() => {
+  // Preseleccionar el servicio si viene en la URL
+  if (route.query.service) {
+    form.service = route.query.service;
+  }
 });
 
 const errors = reactive({
@@ -181,9 +192,9 @@ const translations = {
         serviceLabel: 'Servicio de interés',
         serviceDefault: 'Selecciona un servicio',
         serviceOptions: [
-            { value: 'landing', label: 'Landing Page ($100)' },
-            { value: 'website', label: 'Página Web ($300)' },
-            { value: 'webapp', label: 'Aplicación Web (desde $700)' },
+            { value: 'pagina-web', label: 'Páginas web ($100)' },
+            { value: 'sitio-web', label: 'Sitios web ($300)' },
+            { value: 'aplicacion-web', label: 'Aplicaciones Web (desde $1,000)' },
             { value: 'other', label: 'Otro / No estoy seguro' }
         ],
         messageLabel: 'Mensaje',
@@ -211,9 +222,9 @@ const translations = {
         serviceLabel: 'Service of interest',
         serviceDefault: 'Select a service',
         serviceOptions: [
-            { value: 'landing', label: 'Landing Page ($100)' },
-            { value: 'website', label: 'Website ($300)' },
-            { value: 'webapp', label: 'Web Application (from $700)' },
+            { value: 'pagina-web', label: 'Web Pages ($100)' },
+            { value: 'sitio-web', label: 'Websites ($300)' },
+            { value: 'aplicacion-web', label: 'Web Applications (from $1,000)' },
             { value: 'other', label: 'Other / Not sure' }
         ],
         messageLabel: 'Message',

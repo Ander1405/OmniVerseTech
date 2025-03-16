@@ -33,7 +33,7 @@
                                     </li>
                                 </ul>
                                 <div class="hidden md:block w-full">
-                                    <router-link to="/contacto" class="block w-full text-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl transition-colors duration-300">
+                                    <router-link :to="{ path: '/contacto', query: { service: service.id }}" class="block w-full text-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl transition-colors duration-300">
                                         {{ translations[currentLanguage].ctaButton }}
                                     </router-link>
                                 </div>
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="md:hidden w-full">
-                                <router-link to="/contacto" class="block text-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl transition-colors duration-300">
+                                <router-link :to="{ path: '/contacto', query: { service: service.id }}" class="block text-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl transition-colors duration-300">
                                     {{ translations[currentLanguage].ctaButton }}
                                 </router-link>
                             </div>
@@ -117,7 +117,7 @@ const translations = {
         ctaButton: 'Solicitar cotización',
         services: [
             {
-                id: 'webPage',
+                id: 'pagina-web',
                 title: 'Páginas web',
                 price: '$100',
                 pricingNote: 'Pago único / Tiempo de entrega de 5 a 7 días habíles',
@@ -130,7 +130,7 @@ const translations = {
                 image: '/src/images/services/webpage-cover.png'
             },
             {
-                id: 'webSite',
+                id: 'sitio-web',
                 title: 'Sitios web',
                 price: '$300',
                 pricingNote: 'Según requerimientos / Tiempo de entrega de 2 a 4 semanas',
@@ -146,9 +146,9 @@ const translations = {
                 image: '/src/images/services/website.jpg'
             },
             {
-                id: 'app',
+                id: 'aplicacion-web',
                 title: 'Aplicaciones Web',
-                price: 'desde $700',
+                price: 'desde $1,000',
                 pricingNote: 'según requerimientos',
                 description: 'Soluciones web personalizadas con funcionalidades avanzadas para necesidades específicas de negocio. Incluyen desarrollo front-end y back-end, bases de datos y funcionalidades a medida.',
                 features: [
@@ -194,8 +194,8 @@ const translations = {
         ctaButton: 'Request a quote',
         services: [
             {
-                id: 'landing',
-                title: 'Landing Pages',
+                id: 'pagina-web',
+                title: 'Web Pages',
                 price: '$100',
                 pricingNote: 'one-time payment',
                 description: 'Conversion-optimized landing pages, ideal for specific campaigns or product presentations. They include attractive design, contact forms, and mobile optimization.',
@@ -210,8 +210,8 @@ const translations = {
                 image: '/src/images/services/webpage-cover.png'
             },
             {
-                id: 'web',
-                title: 'Corporate Websites',
+                id: 'sitio-web',
+                title: 'Websites',
                 price: '$300',
                 pricingNote: 'one-time payment',
                 description: 'Professional and responsive websites for companies looking to establish a solid digital presence. They include multiple pages, custom design, and SEO optimization.',
@@ -226,9 +226,9 @@ const translations = {
                 image: '/src/images/services/website.jpg'
             },
             {
-                id: 'app',
+                id: 'aplicacion-web',
                 title: 'Web Applications',
-                price: 'from $700',
+                price: 'from $1,000',
                 pricingNote: 'based on requirements',
                 description: 'Custom web solutions with advanced functionalities for specific business needs. They include front-end and back-end development, databases, and custom functionalities.',
                 features: [
