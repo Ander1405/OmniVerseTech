@@ -15,8 +15,8 @@
       
       <section class="py-16 bg-white dark:bg-secondary transition-colors duration-300">
         <div class="container mx-auto px-4">
-          <div class="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto">
-            <div class="w-full md:w-1/2 mb-10 md:mb-0 md:pr-10">
+          <div class="flex flex-row w-full items-center mx-auto justify-between max-w-6xl">
+            <div class="w-full flex flex-col md:flex-row justify-between gap-8 mb-10 md:mb-0 md:pr-10">
               <div 
                 class="bg-gray-50 dark:bg-secondary-dark p-8 rounded-lg shadow-lg transform transition-all duration-500 hover:shadow-xl"
                 v-intersection-observer="{ callback: onIntersect, options: { threshold: 0.2 } }"
@@ -29,7 +29,7 @@
               </div>
               
               <div 
-                class="bg-gray-50 dark:bg-secondary-dark p-8 rounded-lg shadow-lg mt-8 transform transition-all duration-500 hover:shadow-xl"
+                class="bg-gray-50 dark:bg-secondary-dark p-8 rounded-lg shadow-lg transform transition-all duration-500 hover:shadow-xl"
                 v-intersection-observer="{ callback: onIntersect2, options: { threshold: 0.2 } }"
                 :class="{ 'animate-slide-in-left': isVisible2 }"
               >
@@ -39,21 +39,10 @@
                 </p>
               </div>
             </div>
-            
-            <div 
-              class="w-full md:w-1/2 relative"
-              v-intersection-observer="{ callback: onIntersect3, options: { threshold: 0.2 } }"
-              :class="{ 'animate-slide-in-right': isVisible3 }"
-            >
-              <div class="relative z-10 overflow-hidden rounded-lg shadow-xl">
-                
-              </div>
-              <div class="absolute -bottom-6 -left-6 w-full h-full bg-primary-light rounded-lg -z-10"></div>
-            </div>
           </div>
         </div>
       </section>
-      
+
       <section class="py-16 bg-gray-50 dark:bg-secondary-dark transition-colors duration-300">
         <div class="container mx-auto px-4">
           <div class="max-w-3xl mx-auto text-center mb-16">
@@ -65,51 +54,97 @@
             </p>
             <div class="w-20 h-1 bg-primary mx-auto mt-6"></div>
           </div>
-          
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div 
-              v-for="(member, index) in translations[currentLanguage].team.members" 
-              :key="index"
-              class="bg-white dark:bg-secondary rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
-              v-intersection-observer="{ callback: (entries) => onIntersectTeam(entries, index), options: { threshold: 0.2 } }"
-              :class="{ 'animate-fade-in': visibleTeam[index] }"
-              :style="{ 'animation-delay': `${index * 0.2}s` }"
-            >
-              <div class="relative overflow-hidden h-64">
-                <img 
-                  :src="member.image" 
-                  :alt="member.name" 
-                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  loading="lazy"
-                />
+
+          <div class="max-w-4xl mx-auto text-center mb-16">
+            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              {{ translations[currentLanguage].team.description }}
+            </p>
+          </div>
+
+          <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+              <div
+                v-for="(member, index) in translations[currentLanguage].team.members.slice(0, 3)"
+                :key="index"
+                class="bg-white dark:bg-secondary rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                v-intersection-observer="{ callback: (entries) => onIntersectTeam(entries, index), options: { threshold: 0.2 } }"
+              >
+                <div class="relative overflow-hidden h-64">
+                  <img
+                    :src="member.image"
+                    :alt="member.name"
+                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">{{ member.name }}</h3>
+                  <p class="text-primary font-medium mb-3">{{ member.position }}</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">{{ member.bio }}</p>
+                  <div class="flex space-x-3">
+                    <a v-for="social in member.social" :key="social.name" :href="social.url" target="_blank" class="text-gray-500 hover:text-primary transition-colors duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <template v-if="social.name === 'linkedin'">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
+                        </template>
+                        <template v-else-if="social.name === 'twitter'">
+                          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </template>
+                        <template v-else-if="social.name === 'github'">
+                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </template>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div class="p-6">
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">{{ member.name }}</h3>
-                <p class="text-primary font-medium mb-3">{{ member.position }}</p>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">{{ member.bio }}</p>
-                <div class="flex space-x-3">
-                  <a v-for="social in member.social" :key="social.name" :href="social.url" target="_blank" class="text-gray-500 hover:text-primary transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <template v-if="social.name === 'linkedin'">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                      </template>
-                      <template v-else-if="social.name === 'twitter'">
-                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                      </template>
-                      <template v-else-if="social.name === 'github'">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                      </template>
-                    </svg>
-                  </a>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:w-2/3 mx-auto">
+              <div
+                v-for="(member, index) in translations[currentLanguage].team.members.slice(3)"
+                :key="index + 3"
+                class="bg-white dark:bg-secondary rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                v-intersection-observer="{ callback: (entries) => onIntersectTeam(entries, index + 3), options: { threshold: 0.2 } }"
+              >
+                <div class="relative overflow-hidden h-64">
+                  <img
+                    :src="member.image"
+                    :alt="member.name"
+                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">{{ member.name }}</h3>
+                  <p class="text-primary font-medium mb-3">{{ member.position }}</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">{{ member.bio }}</p>
+                  <div class="flex space-x-3">
+                    <a v-for="social in member.social" :key="social.name" :href="social.url" target="_blank" class="text-gray-500 hover:text-primary transition-colors duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <template v-if="social.name === 'linkedin'">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
+                        </template>
+                        <template v-else-if="social.name === 'twitter'">
+                          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </template>
+                        <template v-else-if="social.name === 'github'">
+                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </template>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      
+
       <section class="py-16 bg-white dark:bg-secondary transition-colors duration-300">
         <div class="container mx-auto px-4">
           <div class="max-w-3xl mx-auto text-center mb-16">
@@ -233,32 +268,53 @@
       team: {
         title: 'Nuestro Equipo',
         subtitle: 'Profesionales apasionados por la tecnología',
+        description: 'Nuestro equipo está formado por desarrolladores Full Stack altamente capacitados, con experiencia en empresas de primer nivel. Nos destacamos por elaborar soluciones óptimas y competentes en el mercado, combinando un profundo análisis técnico con una sólida comprensión del negocio. Cada miembro de nuestro equipo aporta no solo habilidades técnicas excepcionales, sino también una verdadera pasión por la tecnología y la innovación. Nos enfocamos en potenciar tus proyectos e ideas, transformándolos en soluciones digitales robustas y escalables. La excelencia técnica y el compromiso con el éxito de nuestros clientes son los pilares que nos impulsan cada día.',
         members: [
           {
-            name: 'Carlos Rodríguez',
-            position: 'CEO & Fundador',
-            bio: 'Con más de 10 años de experiencia en desarrollo web y emprendimiento digital. Apasionado por crear soluciones tecnológicas que resuelvan problemas reales.',
-            image: '/placeholder.svg?height=300&width=300',
-            social: [
-              { name: 'linkedin', url: 'https://linkedin.com' },
-              { name: 'twitter', url: 'https://twitter.com' }
-            ]
-          },
-          {
-            name: 'María González',
-            position: 'Directora de Diseño UX/UI',
-            bio: 'Especialista en diseño centrado en el usuario con experiencia en grandes proyectos. Su enfoque combina estética y funcionalidad para crear interfaces intuitivas.',
-            image: '/placeholder.svg?height=300&width=300',
-            social: [
-              { name: 'linkedin', url: 'https://linkedin.com' },
-              { name: 'twitter', url: 'https://twitter.com' }
-            ]
-          },
-          {
-            name: 'Juan Pérez',
+            name: 'Valeria Granada Rodas',
             position: 'Desarrollador Senior',
-            bio: 'Experto en tecnologías frontend y backend. Ha liderado el desarrollo de aplicaciones web complejas para clientes de diversos sectores.',
-            image: '/placeholder.svg?height=300&width=300',
+            bio: 'Con más de 5 años de experiencia en desarrollo web. Ingeniera de sitemas de la Universidad de Antioquia. Apasionado por crear soluciones tecnológicas que resuelvan problemas reales.',
+            image: '/src/images/photos/vale.jpeg',
+            social: [
+              { name: 'linkedin', url: 'https://linkedin.com' },
+              { name: 'twitter', url: 'https://twitter.com' }
+            ]
+          },
+          {
+            name: 'Alejandro Castrillon Ciro',
+            position: 'Desarrollador Middle',
+            bio: 'Con más de 3 años de experiencia en desarrollo web. Ingeniero de sitemas graduado de la Universidad de Antioquia.',
+            image: '/src/images/photos/ciro.jpeg',
+            social: [
+              { name: 'linkedin', url: 'https://linkedin.com' },
+              { name: 'twitter', url: 'https://twitter.com' }
+            ]
+          },
+          {
+            name: 'Alejandro Cristancho',
+            position: 'Desarrollador Middle',
+            bio: 'Ingeniero de sistemas de la Universidad de Antioquia, con mas de 2 años de experiencia.',
+            image: '/src/images/photos/cristancho.jpeg',
+            social: [
+              { name: 'linkedin', url: 'https://linkedin.com' },
+              { name: 'github', url: 'https://github.com' }
+            ]
+          },
+          {
+            name: 'Ana Maria Granada Rodas',
+            position: 'Desarrollador Middle',
+            bio: 'Estudiante de ingeniería de sistemas de la Universidad de Antioquia, con mas de 3 años de experiencia.',
+            image: '/src/images/photos/ana.jpeg',
+            social: [
+              { name: 'linkedin', url: 'https://linkedin.com' },
+              { name: 'github', url: 'https://github.com' }
+            ]
+          },
+          {
+            name: 'Anderson Cardona Ortiz',
+            position: 'Desarrollador Middle',
+            bio: 'Estudiante de ingeniería de sistemas del ITM, con mas de 3 años de experiencia.',
+            image: '/src/images/photos/anderson.jpeg',
             social: [
               { name: 'linkedin', url: 'https://linkedin.com' },
               { name: 'github', url: 'https://github.com' }
@@ -307,6 +363,7 @@
       team: {
         title: 'Our Team',
         subtitle: 'Professionals passionate about technology',
+        description: 'Our team consists of highly skilled Full Stack developers with experience in leading companies. We stand out by delivering optimal and competent solutions in the market, combining deep technical analysis with a solid understanding of the business. Each member of our team not only brings exceptional technical skills but also a true passion for technology and innovation. We focus on turning your projects and ideas into robust and scalable digital solutions. Technical excellence and commitment to our clients\' success are the pillars that drive us every day.',
         members: [
           {
             name: 'Carlos Rodriguez',
