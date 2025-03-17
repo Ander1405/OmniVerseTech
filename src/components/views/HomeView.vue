@@ -100,21 +100,21 @@ const translations = {
             subtitle: 'Historias de éxito que nos enorgullecen',
             items: [
             {
-                name: 'Carlos Rodríguez',
-                company: 'TechStart Inc.',
-                image: '/images/testimonial1.jpg',
-                text: 'OmniVerse Tech transformó nuestra idea en una aplicación web funcional en tiempo récord. Su equipo es altamente profesional y entregó exactamente lo que necesitábamos.'
+                name: 'Anderson Restrepo',
+                company: 'Kashmir cervezas',
+                image: '/src/images/clients/kashmir.png',
+                text: 'OmniVerse Tech transformó nuestra idea en una página web funcional en tiempo récord. Su equipo es altamente profesional y entregó exactamente lo que necesitábamos, asesorándonos en la experencia de usuario.'
             },
             {
-                name: 'María González',
-                company: 'Innovate Solutions',
-                image: '/images/testimonial2.jpg',
+                name: 'Franklin Gutierrez & Omar Mesa',
+                company: 'Edemmto',
+                image: '/src/images/clients/kashmir.png',
                 text: 'Nuestra landing page ha incrementado nuestras conversiones en un 40%. El diseño es moderno y la experiencia de usuario es excepcional. ¡Totalmente recomendados!'
             },
             {
                 name: 'Juan Pérez',
                 company: 'Digital Marketing Pro',
-                image: '/images/testimonial3.jpg',
+                image: '/src/images/clients/kashmir.png',
                 text: 'Hemos trabajado con OmniVerse Tech en múltiples proyectos y siempre entregan soluciones de alta calidad. Su atención al detalle y soporte técnico son incomparables.'
             }
           ]
@@ -206,21 +206,21 @@ const translations = {
             subtitle: 'Success stories that make us proud',
             items: [
                 {
-                    name: 'Carlos Rodriguez',
-                    company: 'TechStart Inc.',
-                    image: '/images/testimonial1.jpg',
+                    name: 'Anderson Restrepo',
+                    company: 'Kashmir cervezas',
+                    image: '/src/images/clients/kashmir.png',
                     text: 'OmniVerse Tech transformed our idea into a functional web application in record time. Their team is highly professional and delivered exactly what we needed.'
                 },
                 {
-                    name: 'Maria Gonzalez',
-                    company: 'Innovate Solutions',
-                    image: '/images/testimonial2.jpg',
+                    name: 'Franklin Gutierrez & Omar Mesa',
+                    company: 'Edemmto',
+                    image: '/src/images/clients/kashmir.png',
                     text: 'Our landing page has increased our conversions by 40%. The design is modern and the user experience is exceptional. Highly recommended!'
                 },
                 {
                     name: 'Juan Perez',
                     company: 'Digital Marketing Pro',
-                    image: '/images/testimonial3.jpg',
+                    image: '/src/images/clients/kashmir.png',
                     text: 'We have worked with OmniVerse Tech on multiple projects and they always deliver high-quality solutions. Their attention to detail and technical support are unmatched.'
                 }
             ]

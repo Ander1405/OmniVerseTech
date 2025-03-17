@@ -13,13 +13,13 @@
       
       <div 
         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto"
-        v-intersection-observer="{ callback: onIntersect, options: { threshold: 0.2 } }"
-        :class="{ 'animate-fade-in': isVisible }"
+        v-intersection-observer="{ callback: onIntersect, options: { threshold: 0.1, rootMargin: '50px' } }"
       >
         <div 
           v-for="(tech, index) in content.techs" 
           :key="tech.name"
-          class="flex flex-col items-center justify-center p-4 bg-white dark:bg-secondary rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+          class="flex flex-col items-center justify-center p-4 bg-white dark:bg-secondary rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 initially-hidden"
+          :class="{ 'animate-slide-in': isVisible }"
           :style="{ 'animation-delay': `${index * 0.1}s` }"
         >
           <img 
@@ -70,15 +70,19 @@ const vIntersectionObserver = {
 </script>
 
 <style scoped>
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-in-out forwards;
+.initially-hidden {
   opacity: 0;
+  transform: translateY(30px);
 }
 
-@keyframes fadeIn {
+.animate-slide-in {
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+@keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
