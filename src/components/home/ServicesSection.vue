@@ -15,10 +15,10 @@
           <div
               v-for="(service, index) in content.items"
               :key="service.id"
-              class="bg-gray-50 dark:bg-secondary-dark rounded-xl shadow-lg overflow-hidden transform transition-all duration-500 hover:shadow-xl group flex flex-col h-full"
-              v-intersection-observer="{ callback: (entries) => onIntersect(entries, index), options: { threshold: 0.2 } }"
-              :class="{ 'animate-zoom-in': visibleServices[index] }"
-              :style="{ 'animation-delay': `${index * 0.2}s` }"
+              class="bg-gray-50 dark:bg-secondary-dark rounded-xl shadow-lg overflow-hidden hover:shadow-xl group flex flex-col h-full initially-hidden"
+              v-intersection-observer="{ callback: (entries) => onIntersect(entries, index), options: { threshold: 0.1, rootMargin: '50px' } }"
+              :class="{ 'animate-slide-in': visibleServices[index] }"
+              :style="{ 'animation-delay': `${index * 0.6}s` }"
               :id="service.id"
           >
               <div class="bg-primary p-6 text-center relative">
@@ -70,9 +70,6 @@
                   </div>
               </div>
           </div>
-
-
-
       </div>
       
       <div class="text-center mt-12">
@@ -131,19 +128,23 @@ const vIntersectionObserver = {
 </script>
 
 <style scoped>
-.animate-zoom-in {
-  animation: zoomIn 0.8s ease-out forwards;
+.initially-hidden {
   opacity: 0;
+  transform: translateY(30px);
 }
 
-@keyframes zoomIn {
+.animate-slide-in {
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+@keyframes slideIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 }
 </style>
