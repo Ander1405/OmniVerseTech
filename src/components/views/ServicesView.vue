@@ -47,7 +47,6 @@
                             <div class="w-full md:w-1/2 self-stretch">
                                 <div class="relative w-full h-full">
                                     <img :src="service.image" :alt="service.title" class="w-full h-full object-cover rounded-xl shadow-xl" loading="lazy" />
-                                    <div class="absolute -bottom-4 -right-4 w-full h-full bg-primary-light rounded-lg -z-10"></div>
                                 </div>
                             </div>
                             <div class="md:hidden w-full">
