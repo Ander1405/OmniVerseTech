@@ -145,7 +145,7 @@ const translations = {
                 id: 'pagina-web',
                 title: 'Páginas web',
                 price: '$100',
-                pricingNote: 'Pago único / Tiempo de entrega de 5 a 7 días habíles',
+                pricingNote: 'Pago único / Tiempo de entrega de 5 a 7 días hábiles',
                 description: 'Páginas individuales diseñadas para presentar información clave de manera clara, accesible y visualmente atractiva. Optimizadas para captar la atención del usuario, mejorar la experiencia de navegación y facilitar la comprensión del contenido de forma rápida y efectiva.',
                 features: [
                     'Diseño genérico',
@@ -173,8 +173,8 @@ const translations = {
             {
                 id: 'aplicacion-web',
                 title: 'Aplicaciones Web',
-                price: 'desde $1,000',
-                pricingNote: 'según requerimientos',
+                price: 'Desde $1,000',
+                pricingNote: 'Según requerimientos',
                 description: 'Soluciones web personalizadas con funcionalidades avanzadas para necesidades específicas de negocio. Incluyen desarrollo front-end y back-end, bases de datos y funcionalidades a medida.',
                 features: [
                     'Análisis y planificación detallada',
@@ -187,29 +187,25 @@ const translations = {
                 ],
                 image: '/src/images/services/webaplications.jpg'
             }
-            ],
+        ],
         faqTitle: 'Preguntas Frecuentes',
         faqSubtitle: 'Respuestas a las dudas más comunes sobre nuestros servicios',
         faqs: [
             {
                 question: '¿Cuánto tiempo toma desarrollar un proyecto?',
-                answer: 'Los tiempos de entrega varían según el tipo de proyecto. Las landing pages suelen estar listas en 5-7 días hábiles, los sitios web en 2-3 semanas, y las aplicaciones web dependen de la complejidad, generalmente entre 4-8 semanas.',
-                isOpen: false
+                answer: 'Los tiempos de entrega varían según el tipo de proyecto. Las páginas web suelen estar listas en 5-7 días hábiles, los sitios web en 2-4 semanas, y las aplicaciones web dependen de la complejidad, generalmente entre 4-8 semanas.'
             },
             {
                 question: '¿Qué incluye el mantenimiento de mi sitio web?',
-                answer: 'Nuestros planes de mantenimiento incluyen actualizaciones de seguridad, copias de seguridad regulares, soporte técnico, correcciones de errores y pequeñas modificaciones de contenido. Los planes se adaptan a las necesidades específicas de cada cliente.',
-                isOpen: false
+                answer: 'Nuestros planes de mantenimiento incluyen actualizaciones de seguridad, copias de seguridad regulares, soporte técnico, correcciones de errores y pequeñas modificaciones de contenido. Los planes se adaptan a las necesidades específicas de cada cliente.'
             },
             {
                 question: '¿Puedo actualizar mi sitio web por mi cuenta?',
-                answer: 'Sí, dependiendo del tipo de proyecto, podemos implementar un sistema de gestión de contenido (CMS) que le permitirá actualizar textos, imágenes y otros contenidos sin conocimientos técnicos.',
-                isOpen: false
+                answer: 'Sí, dependiendo del tipo de proyecto, podemos implementar un sistema de gestión de contenido (CMS) que le permitirá actualizar textos, imágenes y otros contenidos sin conocimientos técnicos.'
             },
             {
                 question: '¿Ofrecen servicios de hosting y dominio?',
-                answer: 'Sí, podemos gestionar el hosting y dominio de su proyecto por un costo adicional. También podemos trabajar con proveedores que usted ya tenga contratados.',
-                isOpen: false
+                answer: 'Sí, podemos gestionar el hosting y dominio de su proyecto por un costo adicional. También podemos trabajar con proveedores que usted ya tenga contratados.'
             }
         ]
     },
@@ -222,15 +218,12 @@ const translations = {
                 id: 'pagina-web',
                 title: 'Web Pages',
                 price: '$100',
-                pricingNote: 'one-time payment',
-                description: 'Conversion-optimized landing pages, ideal for specific campaigns or product presentations. They include attractive design, contact forms, and mobile optimization.',
+                pricingNote: 'One-time payment / Delivery time: 5 to 7 business days',
+                description: 'Individual web pages designed to present key information in a clear, accessible, and visually attractive way. Optimized to capture user attention, improve navigation experience, and facilitate quick and effective content comprehension.',
                 features: [
-                    'Custom and attractive design',
-                    'Mobile device optimization',
-                    'Functional contact form',
-                    'Basic SEO optimization',
-                    'Fast loading and optimized performance',
-                    'Delivery in 5-7 business days'
+                    'Generic design',
+                    'Responsive design',
+                    'Contact form'
                 ],
                 image: '/src/images/services/webpage-cover.png'
             },
@@ -238,24 +231,24 @@ const translations = {
                 id: 'sitio-web',
                 title: 'Websites',
                 price: '$300',
-                pricingNote: 'one-time payment',
-                description: 'Professional and responsive websites for companies looking to establish a solid digital presence. They include multiple pages, custom design, and SEO optimization.',
+                pricingNote: 'Based on requirements / Delivery time: 2 to 4 weeks',
+                description: 'Professional and responsive websites designed for businesses looking to establish a solid and attractive digital presence. They include multiple pages with custom design, SEO optimization to improve search visibility, and an adaptable structure that ensures an optimal experience on any device.',
                 features: [
-                    'Up to 5 pages (Home, Services, About Us, etc.)',
-                    'Responsive design for all devices',
-                    'Complete SEO optimization',
-                    'Google Analytics integration',
-                    'Contact form and location map',
-                    'Delivery in 2-3 weeks'
+                    'Custom design',
+                    'Up to 5 web pages',
+                    'Responsive design',
+                    'Basic content management',
+                    'Support for multiple languages',
+                    'SSL certificate included'
                 ],
                 image: '/src/images/services/website.jpg'
             },
             {
                 id: 'aplicacion-web',
                 title: 'Web Applications',
-                price: 'from $1,000',
-                pricingNote: 'based on requirements',
-                description: 'Custom web solutions with advanced functionalities for specific business needs. They include front-end and back-end development, databases, and custom functionalities.',
+                price: 'From $1,000',
+                pricingNote: 'Based on requirements',
+                description: 'Custom web solutions with advanced functionalities for specific business needs. They include front-end and back-end development, databases, and tailored functionalities.',
                 features: [
                     'Detailed analysis and planning',
                     'Intuitive user interface design',
@@ -267,34 +260,29 @@ const translations = {
                 ],
                 image: '/src/images/services/webaplications.jpg'
             }
-            ],
+        ],
         faqTitle: 'Frequently Asked Questions',
         faqSubtitle: 'Answers to the most common questions about our services',
         faqs: [
             {
                 question: 'How long does it take to develop a project?',
-                answer: 'Delivery times vary depending on the type of project. Landing pages are usually ready in 5-7 business days, websites in 2-3 weeks, and web applications depend on complexity, generally between 4-8 weeks.',
-                isOpen: false
+                answer: 'Delivery times vary depending on the type of project. Web pages are usually ready in 5-7 business days, websites in 2-4 weeks, and web applications depend on complexity, generally between 4-8 weeks.'
             },
             {
                 question: 'What does website maintenance include?',
-                answer: 'Our maintenance plans include security updates, regular backups, technical support, bug fixes, and minor content modifications. Plans are adapted to the specific needs of each client.',
-                isOpen: false
+                answer: 'Our maintenance plans include security updates, regular backups, technical support, bug fixes, and minor content modifications. Plans are adapted to the specific needs of each client.'
             },
             {
                 question: 'Can I update my website myself?',
-                answer: 'Yes, depending on the type of project, we can implement a content management system (CMS) that will allow you to update texts, images, and other content without technical knowledge.',
-                isOpen: false
+                answer: 'Yes, depending on the type of project, we can implement a content management system (CMS) that will allow you to update texts, images, and other content without technical knowledge.'
             },
             {
                 question: 'Do you offer hosting and domain services?',
-                answer: 'Yes, we can manage the hosting and domain of your project for an additional cost. We can also work with providers you already have contracted.',
-                isOpen: false
+                answer: 'Yes, we can manage the hosting and domain of your project for an additional cost. We can also work with providers you already have contracted.'
             }
         ]
     }
-};
-</script>
+};</script>
 
 <script>
 export default {
