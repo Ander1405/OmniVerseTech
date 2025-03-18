@@ -15,7 +15,13 @@
         <section class="py-16 bg-white dark:bg-secondary transition-colors duration-300">
             <div class="container mx-auto px-4">
                 <div class="max-w-full mx-auto">
-                    <div v-for="(service, index) in translations[currentLanguage].services" :key="service.id" :id="service.id" class="mb-20">
+                    <div v-for="(service, index) in translations[currentLanguage].services" 
+                         :key="service.id" 
+                         :id="service.id" 
+                         class="mb-20 initially-hidden"
+                         v-intersection-observer="{ callback: (entries) => onIntersect(entries, index), options: { threshold: 0.1, rootMargin: '50px' } }"
+                         :class="{ 'animate-slide-in': visibleServices[index] }"
+                         :style="{ 'animation-delay': `${index * 0.3}s` }">
                         <div class="flex flex-col md:flex-row items-start gap-8" :class="{ 'md:flex-row-reverse': index % 2 !== 0 }">
                             <div class="w-full md:w-1/2 mb-8 md:mb-0 self-stretch flex flex-col justify-center" :class="{ 'md:pl-12': index % 2 === 0, 'md:pr-12': index % 2 !== 0 }">
                                 <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">{{ service.title }}</h2>
@@ -99,14 +105,34 @@
 import { inject, ref } from 'vue';
 
 const currentLanguage = inject('currentLanguage');
-
 const openFaqs = ref(new Set());
+const visibleServices = ref({});
 
 const toggleFaq = (index) => {
     if (openFaqs.value.has(index)) {
         openFaqs.value.delete(index);
     } else {
         openFaqs.value.add(index);
+    }
+};
+
+const onIntersect = (entries, index) => {
+    if (entries[0].isIntersecting) {
+        visibleServices.value[index] = true;
+    }
+};
+
+// Custom directive for intersection observer
+const vIntersectionObserver = {
+    mounted(el, binding) {
+        const observer = new IntersectionObserver(binding.value.callback, binding.value.options);
+        observer.observe(el);
+        el._observer = observer;
+    },
+    unmounted(el) {
+        if (el._observer) {
+            el._observer.disconnect();
+        }
     }
 };
 
@@ -288,4 +314,26 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.initially-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.animate-slide-in {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
 
