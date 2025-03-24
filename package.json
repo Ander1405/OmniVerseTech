@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.2.0",
+    "@phosphor-icons/vue": "^2.2.1",
     "@tabler/icons-vue": "^3.31.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
