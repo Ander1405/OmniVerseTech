@@ -121,7 +121,6 @@ const onIntersect = (entries, index) => {
     }
 };
 
-// Custom directive for intersection observer
 const vIntersectionObserver = {
     mounted(el, binding) {
         const observer = new IntersectionObserver(binding.value.callback, binding.value.options);
@@ -144,7 +143,7 @@ const translations = {
             {
                 id: 'pagina-web',
                 title: 'Páginas web',
-                price: '$100',
+                price: 'Desde $100',
                 pricingNote: 'Pago único / Tiempo de entrega de 5 a 7 días hábiles',
                 description: 'Páginas individuales diseñadas para presentar información clave de manera clara, accesible y visualmente atractiva. Optimizadas para captar la atención del usuario, mejorar la experiencia de navegación y facilitar la comprensión del contenido de forma rápida y efectiva.',
                 features: [
@@ -157,7 +156,7 @@ const translations = {
             {
                 id: 'sitio-web',
                 title: 'Sitios web',
-                price: '$300',
+                price: 'Desde $300',
                 pricingNote: 'Según requerimientos / Tiempo de entrega de 2 a 4 semanas',
                 description: 'Sitios web profesionales y responsivos diseñados para empresas que buscan establecer una presencia digital sólida y atractiva. Incluyen múltiples páginas con diseño personalizado, optimización SEO para mejorar la visibilidad en buscadores y una estructura adaptable que garantiza una experiencia óptima en cualquier dispositivo.',
                 features: [
@@ -185,8 +184,26 @@ const translations = {
                     'Soporte técnico post-lanzamiento',
                     'Tiempo de entrega según complejidad'
                 ],
-                image: '/src/images/services/webaplications.jpg'
+                image: '/src/images/services/web-applications.png'
+            },
+            {
+                id: 'generalServices',
+                title: 'Servicios Generales',
+                price: '$ Variado',
+                pricingNote: 'Según requerimientos',
+                description: 'Soluciones web personalizadas con funcionalidades avanzadas para necesidades específicas de negocio. Estos incluyen integración de pasarelas de pago, consultoría de proyectos y desarrollos técnicos a medida.',
+                features: [
+                    'Análisis y planificación detallada',
+                    'Integración con pasarelas de pago',
+                    'Consultoría técnica para proyectos web',
+                    'Desarrollo front-end y back-end',
+                    'Panel de administración personalizado',
+                    'Integraciones con APIs y servicios externos',
+                    'Soporte técnico post-lanzamiento',
+                ],
+                image: '/src/images/services/general-services.jpg'
             }
+
         ],
         faqTitle: 'Preguntas Frecuentes',
         faqSubtitle: 'Respuestas a las dudas más comunes sobre nuestros servicios',
@@ -217,7 +234,7 @@ const translations = {
             {
                 id: 'pagina-web',
                 title: 'Web Pages',
-                price: '$100',
+                price: 'Desde $100',
                 pricingNote: 'One-time payment / Delivery time: 5 to 7 business days',
                 description: 'Individual web pages designed to present key information in a clear, accessible, and visually attractive way. Optimized to capture user attention, improve navigation experience, and facilitate quick and effective content comprehension.',
                 features: [
@@ -230,7 +247,7 @@ const translations = {
             {
                 id: 'sitio-web',
                 title: 'Websites',
-                price: '$300',
+                price: 'Desde $300',
                 pricingNote: 'Based on requirements / Delivery time: 2 to 4 weeks',
                 description: 'Professional and responsive websites designed for businesses looking to establish a solid and attractive digital presence. They include multiple pages with custom design, SEO optimization to improve search visibility, and an adaptable structure that ensures an optimal experience on any device.',
                 features: [
@@ -259,7 +276,26 @@ const translations = {
                     'Delivery time based on complexity'
                 ],
                 image: '/src/images/services/webaplications.jpg'
+            },
+            {
+                id: 'generalServices',
+                title: 'General Services',
+                price: '$ Pricing',
+                pricingNote: 'Based on requirements',
+                description: 'Custom web solutions with advanced functionalities for specific business needs. These include payment gateway integrations, project consulting, and tailored technical implementations.',
+                features: [
+                    'Detailed analysis and planning',
+                    'Integration with payment gateways',
+                    'Technical consulting for web projects',
+                    'Front-end and back-end development',
+                    'Custom admin panel',
+                    'API and external service integrations',
+                    'Post-launch technical support',
+                    'Delivery time based on complexity'
+                ],
+                image: '/src/images/services/general-services.jpg'
             }
+
         ],
         faqTitle: 'Frequently Asked Questions',
         faqSubtitle: 'Answers to the most common questions about our services',
