@@ -100,14 +100,14 @@
                                 <div>
                                     <div class="flex items-center gap-x-1.5">
                                         <PhPhone :size="32"/>
-                                        <span>Telefono de contacto</span>
+                                        <span>{{ translations[currentLanguage].phoneTitle }}</span>
                                     </div>
                                     <span class="ml-8">+57 3117979834</span>
                                 </div>
                                 <div>
                                     <div class="flex items-center gap-x-1.5">
                                         <PhEnvelopeSimple :size="32"/>
-                                        <span>Correo electronico</span>
+                                        <span>{{ translations[currentLanguage].emailTitle }}</span>
                                     </div>
                                     <span class="ml-8">dexel@gmail.com</span>
                                 </div>
@@ -188,6 +188,8 @@ const translations = {
         phoneLabel: 'Teléfono',
         addressLabel: 'Dirección',
         socialLabel: 'Síguenos',
+        phoneTitle: 'Teléfono de contacto',
+        emailTitle: 'Correo electrónico',
     },
     en: {
         title: 'Contact Us',
@@ -216,6 +218,8 @@ const translations = {
         phoneLabel: 'Phone',
         addressLabel: 'Address',
         socialLabel: 'Follow us',
+        phoneTitle: 'Contact Phone',
+        emailTitle: 'Email Address',
     }
 };
 
