@@ -102,7 +102,7 @@
                                         <PhPhone :size="32"/>
                                         <span>{{ translations[currentLanguage].phoneTitle }}</span>
                                     </div>
-                                    <span class="ml-8">+57 3117979834</span>
+                                    <span class="ml-8">+57 3135632235</span>
                                 </div>
                                 <div>
                                     <div class="flex items-center gap-x-1.5">
@@ -140,7 +140,7 @@ import WhatsappService from '@/services/WhatsappChatService';
 const currentLanguage = inject('currentLanguage');
 const route = useRoute();
 
-const whatsappService = new WhatsappService('573117979834');
+const whatsappService = new WhatsappService('573135632235');
 
 const form = reactive({
     name: '',

@@ -36,7 +36,7 @@
                         </li>
                         <li class="flex items-start gap-x-2">
                             <PhPhone class="text-primary" :size="24"/>
-                            <a href="tel:+11234567890" class="text-gray-400 hover:text-primary transition-colors duration-300">+57 3117979834</a>
+                            <a href="tel:+11234567890" class="text-gray-400 hover:text-primary transition-colors duration-300">+57 3135632235</a>
                         </li>
                     </ul>
                 </div>
@@ -70,4 +70,3 @@ const props = defineProps({
     }
 });
 </script>
-
