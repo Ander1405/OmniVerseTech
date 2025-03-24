@@ -7,29 +7,29 @@
           {{ logo.text }}
         </a>
       </div>
-      
+
       <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center space-x-8">
-        <a 
-          v-for="item in menuItems" 
-          :key="item.name" 
+        <a
+          v-for="item in menuItems"
+          :key="item.name"
           :href="item.href"
           class="text-gray-700 dark:text-white hover:text-[#0CABA8] dark:hover:text-[#0FC2C0] transition-colors duration-300"
         >
           {{ item.name }}
         </a>
-        
+
         <!-- Language Toggle -->
-        <button 
-          @click="$emit('toggle-language')" 
+        <button
+          @click="$emit('toggle-language')"
           class="px-3 py-1 border border-[#0CABA8] rounded text-[#0CABA8] hover:bg-[#0CABA8] hover:text-white transition-colors duration-300"
         >
           {{ currentLanguage === 'es' ? 'EN' : 'ES' }}
         </button>
-        
+
         <!-- Dark Mode Toggle -->
-        <button 
-          @click="$emit('toggle-dark-mode')" 
+        <button
+          @click="$emit('toggle-dark-mode')"
           class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
         >
           <svg v-if="isDarkMode" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -48,10 +48,10 @@
           </svg>
         </button>
       </nav>
-      
+
       <!-- Mobile Menu Button -->
-      <button 
-        @click="toggleMobileMenu" 
+      <button
+        @click="toggleMobileMenu"
         class="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
       >
         <svg v-if="!isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -65,35 +65,35 @@
         </svg>
       </button>
     </div>
-    
+
     <!-- Mobile Menu -->
-    <div 
-      v-if="isMobileMenuOpen" 
+    <div
+      v-if="isMobileMenuOpen"
       class="md:hidden bg-white dark:bg-[#015958] shadow-md transition-all duration-300"
     >
       <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
-        <a 
-          v-for="item in menuItems" 
-          :key="item.name" 
+        <a
+          v-for="item in menuItems"
+          :key="item.name"
           :href="item.href"
           @click="closeMobileMenu"
           class="text-gray-700 dark:text-white hover:text-[#0CABA8] dark:hover:text-[#0FC2C0] transition-colors duration-300 py-2"
         >
           {{ item.name }}
         </a>
-        
+
         <div class="flex space-x-4 py-2">
           <!-- Language Toggle -->
-          <button 
-            @click="$emit('toggle-language')" 
+          <button
+            @click="$emit('toggle-language')"
             class="px-3 py-1 border border-[#0CABA8] rounded text-[#0CABA8] hover:bg-[#0CABA8] hover:text-white transition-colors duration-300"
           >
             {{ currentLanguage === 'es' ? 'EN' : 'ES' }}
           </button>
-          
+
           <!-- Dark Mode Toggle -->
-          <button 
-            @click="$emit('toggle-dark-mode')" 
+          <button
+            @click="$emit('toggle-dark-mode')"
             class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
           >
             <svg v-if="isDarkMode" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
