@@ -8,7 +8,7 @@ export default class WhatsappService {
             .map(([key, value]) => `*${this._formatKey(key)}:* ${value}`)
             .join('\n');
 
-        const url = `https://wa.me/${this.phoneNumber}?text=${encodeURIComponent(`📋 *Nuevo formulario enviado:*\n${message}`)}`;
+        const url = `https://wa.me/${this.phoneNumber}?text=${encodeURIComponent(`*Nuevo formulario WEB enviado:*\n${message}`)}`;
         window.open(url, '_blank');
     }
 

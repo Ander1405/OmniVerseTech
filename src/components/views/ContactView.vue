@@ -135,9 +135,12 @@
 import { ref, reactive, inject, onMounted } from 'vue';
 import {PhEnvelopeSimple, PhInstagramLogo, PhPhone, PhTiktokLogo,} from "@phosphor-icons/vue";
 import { useRoute } from 'vue-router';
+import WhatsappService from '@/services/WhatsappChatService';
 
 const currentLanguage = inject('currentLanguage');
 const route = useRoute();
+
+const whatsappService = new WhatsappService('573117979834');
 
 const form = reactive({
     name: '',
@@ -261,6 +264,12 @@ const submitForm = async () => {
 
         try {
             await new Promise(resolve => setTimeout(resolve, 1500));
+            whatsappService.sendMessage({
+                nombre: form.name,
+                email: form.email,
+                servicio: form.service,
+                mensaje: form.message
+            });
 
             form.name = '';
             form.email = '';
@@ -271,7 +280,7 @@ const submitForm = async () => {
 
             setTimeout(() => {
                 formSubmitted.value = false;
-                }, 5000);
+            }, 5000);
         } catch (error) {
             console.error('Error submitting form:', error);
         } finally {
