@@ -90,9 +90,15 @@ const translations = {
                 { name: 'Vue.js', icon: '/src/icons/vue_logo.svg' },
                 { name: 'React', icon: '/src/icons/react_logo.svg' },
                 { name: 'Node.js', icon: '/src/icons/nodejs_logo.svg' },
-                { name: 'HTML5', icon: '/src/icons/html_logo.svg' },
                 { name: 'CSS3', icon: '/src/icons/css_logo.svg' },
                 { name: 'Tailwind CSS', icon: '/src/icons/tailwind_logo.svg' },
+                { name: 'Angular', icon: '/src/icons/angular_logo.svg' },
+                { name: 'Kotlin', icon: '/src/icons/kotlin_logo.svg' },
+                { name: 'Spring Boot', icon: '/src/icons/spring_logo.svg' },
+                { name: 'Woocommerce', icon: '/src/icons/woocommerce_logo.svg' },
+                { name: 'Prestashop', icon: '/src/icons/prestashop_logo.svg' },
+                { name: 'Magento', icon: '/src/icons/magento_logo.svg' },
+                { name: 'Shopify', icon: '/src/icons/shopify_logo.svg' },
             ]
         },
         testimonials: {
@@ -103,19 +109,22 @@ const translations = {
                 name: 'Anderson Restrepo',
                 company: 'Kashmir cervezas',
                 image: '/src/images/clients/kashmir.png',
-                text: 'OmniVerse Tech transformó nuestra idea en una página web funcional en tiempo récord. Su equipo es altamente profesional y entregó exactamente lo que necesitábamos, asesorándonos en la experencia de usuario.'
+                text: 'Dexel transformó nuestra idea en una página web funcional en tiempo récord. Su equipo es altamente profesional y entregó exactamente lo que necesitábamos, asesorándonos en la experencia de usuario.',
+                link: 'https://kashmir-one.vercel.app/'
             },
             {
                 name: 'Franklin Gutierrez & Omar Mesa',
                 company: 'Edemmto',
-                image: '/src/images/clients/kashmir.png',
-                text: 'Nuestra landing page ha incrementado nuestras conversiones en un 40%. El diseño es moderno y la experiencia de usuario es excepcional. ¡Totalmente recomendados!'
+                image: '/src/images/clients/edemtto.jpeg',
+                text: 'Nuestra landing page ha incrementado nuestras conversiones en un 40%. El diseño es moderno y la experiencia de usuario es excepcional. ¡Totalmente recomendados!',
+                link: 'https://edemtto.vercel.app/'
             },
             {
                 name: 'Juan Pérez',
                 company: 'Digital Marketing Pro',
                 image: '/src/images/clients/kashmir.png',
-                text: 'Hemos trabajado con OmniVerse Tech en múltiples proyectos y siempre entregan soluciones de alta calidad. Su atención al detalle y soporte técnico son incomparables.'
+                text: 'Hemos trabajado con Dexel en múltiples proyectos y siempre entregan soluciones de alta calidad. Su atención al detalle y soporte técnico son incomparables.',
+                link: 'https://kashmir-one.vercel.app/'
             }
           ]
         },
@@ -196,9 +205,15 @@ const translations = {
                 { name: 'Vue.js', icon: '/src/icons/vue_logo.svg' },
                 { name: 'React', icon: '/src/icons/react_logo.svg' },
                 { name: 'Node.js', icon: '/src/icons/nodejs_logo.svg' },
-                { name: 'HTML5', icon: '/src/icons/html_logo.svg' },
                 { name: 'CSS3', icon: '/src/icons/css_logo.svg' },
                 { name: 'Tailwind CSS', icon: '/src/icons/tailwind_logo.svg' },
+                { name: 'Angular', icon: '/src/icons/angular_logo.svg' },
+                { name: 'Kotlin', icon: '/src/icons/kotlin_logo.svg' },
+                { name: 'Spring Boot', icon: '/src/icons/spring_logo.svg' },
+                { name: 'Woocommerce', icon: '/src/icons/woocommerce_logo.svg' },
+                { name: 'Prestashop', icon: '/src/icons/prestashop_logo.svg' },
+                { name: 'Magento', icon: '/src/icons/magento_logo.svg' },
+                { name: 'Shopify', icon: '/src/icons/shopify_logo.svg' },
             ]
         },
         testimonials: {
@@ -209,19 +224,19 @@ const translations = {
                     name: 'Anderson Restrepo',
                     company: 'Kashmir cervezas',
                     image: '/src/images/clients/kashmir.png',
-                    text: 'OmniVerse Tech transformed our idea into a functional web application in record time. Their team is highly professional and delivered exactly what we needed.'
+                    text: 'Dexel transformed our idea into a functional web application in record time. Their team is highly professional and delivered exactly what we needed.'
                 },
                 {
                     name: 'Franklin Gutierrez & Omar Mesa',
-                    company: 'Edemmto',
-                    image: '/src/images/clients/kashmir.png',
+                    company: 'Edemtto',
+                    image: '/src/images/clients/edemtto.jpeg',
                     text: 'Our landing page has increased our conversions by 40%. The design is modern and the user experience is exceptional. Highly recommended!'
                 },
                 {
                     name: 'Juan Perez',
                     company: 'Digital Marketing Pro',
                     image: '/src/images/clients/kashmir.png',
-                    text: 'We have worked with OmniVerse Tech on multiple projects and they always deliver high-quality solutions. Their attention to detail and technical support are unmatched.'
+                    text: 'We have worked with Dexel on multiple projects and they always deliver high-quality solutions. Their attention to detail and technical support are unmatched.'
                 }
             ]
         },
@@ -238,7 +253,7 @@ const translations = {
 export default {
     metaInfo() {
         return {
-            title: this.currentLanguage === 'es' ? 'OmniVerse Tech - Soluciones Tecnológicas' : 'OmniVerse Tech - Technology Solutions',
+            title: this.currentLanguage === 'es' ? 'Dexel - Soluciones Tecnológicas' : 'Dexel - Technology Solutions',
             meta: [
                 {
                     name: 'description',
@@ -248,7 +263,7 @@ export default {
                 },
                 {
                     property: 'og:title',
-                    content: this.currentLanguage === 'es' ? 'OmniVerse Tech - Soluciones Tecnológicas' : 'OmniVerse Tech - Technology Solutions'
+                    content: this.currentLanguage === 'es' ? 'Dexel - Soluciones Tecnológicas' : 'Dexel - Technology Solutions'
                 },
                 {
                     property: 'og:description',

@@ -30,7 +30,7 @@
             <p class="text-gray-600 dark:text-gray-300 mb-6 relative z-10">{{ testimonial.text }}</p>
           </div>
 
-          <div class="py-4 border-t mx-4 border-gray-300">
+          <a class="py-4 border-t mx-4 border-gray-300" :href="testimonial.link" target="_blank" rel="noopener noreferrer">
             <div class="flex items-center">
               <img
                   :src="testimonial.image"
@@ -45,7 +45,7 @@
                 <p class="text-gray-500 dark:text-gray-400 text-sm">{{ testimonial.company }}</p>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>

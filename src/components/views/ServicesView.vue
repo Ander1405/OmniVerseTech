@@ -234,7 +234,7 @@ const translations = {
             {
                 id: 'pagina-web',
                 title: 'Web Pages',
-                price: 'Desde $100',
+                price: 'From $100',
                 pricingNote: 'One-time payment / Delivery time: 5 to 7 business days',
                 description: 'Individual web pages designed to present key information in a clear, accessible, and visually attractive way. Optimized to capture user attention, improve navigation experience, and facilitate quick and effective content comprehension.',
                 features: [
@@ -247,7 +247,7 @@ const translations = {
             {
                 id: 'sitio-web',
                 title: 'Websites',
-                price: 'Desde $300',
+                price: 'From $300',
                 pricingNote: 'Based on requirements / Delivery time: 2 to 4 weeks',
                 description: 'Professional and responsive websites designed for businesses looking to establish a solid and attractive digital presence. They include multiple pages with custom design, SEO optimization to improve search visibility, and an adaptable structure that ensures an optimal experience on any device.',
                 features: [
@@ -324,7 +324,7 @@ const translations = {
 export default {
     metaInfo() {
         return {
-            title: this.currentLanguage === 'es' ? 'Servicios | OmniVerse Tech' : 'Services | OmniVerse Tech',
+            title: this.currentLanguage === 'es' ? 'Servicios | Dexel' : 'Services | Dexel',
             meta: [
                 {
                     name: 'description',

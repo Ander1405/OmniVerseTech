@@ -10,7 +10,7 @@ const routes = [
     name: "home",
     component: HomeView,
     meta: {
-      title: "OmniVerse Tech - Inicio",
+      title: "Dexel - Inicio",
     },
   },
   {
@@ -18,7 +18,7 @@ const routes = [
     name: "services",
     component: ServicesView,
     meta: {
-      title: "OmniVerse Tech - Servicios",
+      title: "Dexel - Servicios",
     },
   },
    {
@@ -26,7 +26,7 @@ const routes = [
     name: "about",
     component: AboutView,
     meta: {
-     title: "OmniVerse Tech - Nosotros",
+     title: "Dexel - Nosotros",
   },
   },
   {
@@ -34,7 +34,7 @@ const routes = [
     name: "contact",
     component: ContactView,
     meta: {
-      title: "OmniVerse Tech - Contacto",
+      title: "Dexel - Contacto",
     },
   },
   // Catch all route for 404
@@ -72,7 +72,7 @@ const router = createRouter({
 
 // Update document title based on route meta
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title || "OmniVerse Tech"
+  document.title = to.meta.title || "Dexel"
   next()
 })
 

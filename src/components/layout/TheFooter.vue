@@ -32,7 +32,7 @@
                     <ul class="space-y-2">
                         <li class="flex items-start gap-x-2">
                             <PhEnvelopeSimple class="text-primary" :size="24"/>
-                            <a href="mailto:info@omniversetech.com" class="text-gray-400 hover:text-primary transition-colors duration-300">dexel@gmail.com</a>
+                            <a href="mailto:info@omniversetech.com" class="text-gray-400 hover:text-primary transition-colors duration-300">dexelinfo@gmail.com</a>
                         </li>
                         <li class="flex items-start gap-x-2">
                             <PhPhone class="text-primary" :size="24"/>

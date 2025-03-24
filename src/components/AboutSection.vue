@@ -41,7 +41,7 @@
           <div class="relative z-10 overflow-hidden rounded-lg shadow-xl">
             <img 
               src="/placeholder.svg?height=600&width=500" 
-              alt="About OmniVerse Tech" 
+              alt="About Dexel"
               class="w-full h-auto transform transition-transform duration-700 hover:scale-110"
             />
           </div>
