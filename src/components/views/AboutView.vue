@@ -66,22 +66,27 @@
               <div
                 v-for="(member, index) in translations[currentLanguage].team.members.slice(0, 3)"
                 :key="index"
-                class="bg-white dark:bg-secondary rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                class="flex flex-col justify-between bg-white dark:bg-secondary rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
                 v-intersection-observer="{ callback: (entries) => onIntersectTeam(entries, index), options: { threshold: 0.2 } }"
               >
-                <div class="relative overflow-hidden h-64">
-                  <img
-                    :src="member.image"
-                    :alt="member.name"
-                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    loading="lazy"
-                  />
+                <div>
+                  <div class="relative overflow-hidden h-64">
+                    <img
+                      :src="member.image"
+                      :alt="member.name"
+                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      loading="lazy"
+                    />
+
+                  </div>
+
+                  <div class="m-6">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">{{ member.name }}</h3>
+                    <p class="text-primary font-medium mb-3">{{ member.position }}</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">{{ member.bio }}</p>
+                  </div>
                 </div>
-                <div class="p-6">
-                  <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">{{ member.name }}</h3>
-                  <p class="text-primary font-medium mb-3">{{ member.position }}</p>
-                  <p class="text-gray-600 dark:text-gray-300 mb-4">{{ member.bio }}</p>
-                  <div class="flex space-x-3">
+                  <div class="flex px-6 pb-6 space-x-3">
                     <a v-for="social in member.social" :key="social.name" :href="social.url" target="_blank" class="text-gray-500 hover:text-primary transition-colors duration-300">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <template v-if="social.name === 'linkedin'">
@@ -89,59 +94,56 @@
                           <rect x="2" y="9" width="4" height="12"></rect>
                           <circle cx="4" cy="4" r="2"></circle>
                         </template>
-                        <template v-else-if="social.name === 'twitter'">
-                          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                        </template>
                         <template v-else-if="social.name === 'github'">
                           <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                         </template>
                       </svg>
                     </a>
                   </div>
-                </div>
               </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:w-2/3 mx-auto">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:w-2/3 mx-auto">
               <div
                 v-for="(member, index) in translations[currentLanguage].team.members.slice(3)"
                 :key="index + 3"
-                class="bg-white dark:bg-secondary rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                class="flex flex-col justify-between bg-white dark:bg-secondary rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
                 v-intersection-observer="{ callback: (entries) => onIntersectTeam(entries, index + 3), options: { threshold: 0.2 } }"
               >
-                <div class="relative overflow-hidden h-64">
-                  <img
-                    :src="member.image"
-                    :alt="member.name"
-                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="p-6">
-                  <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">{{ member.name }}</h3>
-                  <p class="text-primary font-medium mb-3">{{ member.position }}</p>
-                  <p class="text-gray-600 dark:text-gray-300 mb-4">{{ member.bio }}</p>
-                  <div class="flex space-x-3">
-                    <a v-for="social in member.social" :key="social.name" :href="social.url" target="_blank" class="text-gray-500 hover:text-primary transition-colors duration-300">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <template v-if="social.name === 'linkedin'">
-                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                          <rect x="2" y="9" width="4" height="12"></rect>
-                          <circle cx="4" cy="4" r="2"></circle>
-                        </template>
-                        <template v-else-if="social.name === 'twitter'">
-                          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                        </template>
-                        <template v-else-if="social.name === 'github'">
-                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </template>
-                      </svg>
-                    </a>
+                <div>
+                  <div class="relative overflow-hidden h-64">
+                    <img
+                        :src="member.image"
+                        :alt="member.name"
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        loading="lazy"
+                    />
+
+                  </div>
+
+                  <div class="m-6">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">{{ member.name }}</h3>
+                    <p class="text-primary font-medium mb-3">{{ member.position }}</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">{{ member.bio }}</p>
                   </div>
                 </div>
+                <div class="flex px-6 pb-6 space-x-3">
+                  <a v-for="social in member.social" :key="social.name" :href="social.url" target="_blank" class="text-gray-500 hover:text-primary transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <template v-if="social.name === 'linkedin'">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                      </template>
+                      <template v-else-if="social.name === 'github'">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                      </template>
+                    </svg>
+                  </a>
+                </div>
+              </div>
               </div>
             </div>
-          </div>
         </div>
       </section>
 
@@ -273,11 +275,11 @@
           {
             name: 'Valeria Granada Rodas',
             position: 'Desarrollador Senior',
-            bio: 'Con más de 5 años de experiencia en desarrollo web. Ingeniera de sitemas de la Universidad de Antioquia. Apasionado por crear soluciones tecnológicas que resuelvan problemas reales.',
+            bio: 'Con más de 5 años de experiencia en desarrollo web. Ingeniera de sitemas de la Universidad de Antioquia.',
             image: '/src/images/photos/vale.jpeg',
             social: [
-              { name: 'linkedin', url: 'https://linkedin.com' },
-              { name: 'twitter', url: 'https://twitter.com' }
+              { name: 'linkedin', url: 'https://www.linkedin.com/in/vale0722/' },
+              { name: 'github', url: 'https://github.com/vale0722' }
             ]
           },
           {
@@ -286,8 +288,8 @@
             bio: 'Con más de 3 años de experiencia en desarrollo web. Ingeniero de sitemas graduado de la Universidad de Antioquia.',
             image: '/src/images/photos/ciro.jpeg',
             social: [
-              { name: 'linkedin', url: 'https://linkedin.com' },
-              { name: 'twitter', url: 'https://twitter.com' }
+              { name: 'linkedin', url: 'https://www.linkedin.com/in/alejandro-castrillon-ciro-9539491ba/' },
+              { name: 'github', url: 'https://github.com/alejociro' }
             ]
           },
           {
@@ -296,8 +298,8 @@
             bio: 'Ingeniero de sistemas de la Universidad de Antioquia, con mas de 2 años de experiencia.',
             image: '/src/images/photos/cristancho.jpeg',
             social: [
-              { name: 'linkedin', url: 'https://linkedin.com' },
-              { name: 'github', url: 'https://github.com' }
+              { name: 'linkedin', url: 'https://www.linkedin.com/in/alejandrocristm/' },
+              { name: 'github', url: 'https://github.com/AlejandroCristM' }
             ]
           },
           {
@@ -306,8 +308,8 @@
             bio: 'Estudiante de ingeniería de sistemas de la Universidad de Antioquia, con mas de 3 años de experiencia.',
             image: '/src/images/photos/ana.jpeg',
             social: [
-              { name: 'linkedin', url: 'https://linkedin.com' },
-              { name: 'github', url: 'https://github.com' }
+              { name: 'linkedin', url: 'https://www.linkedin.com/in/ana-maria-granada-rodas-945712244/' },
+              { name: 'github', url: 'https://github.com/ana2002granada' }
             ]
           },
           {
@@ -316,8 +318,8 @@
             bio: 'Estudiante de ingeniería de sistemas del ITM, con mas de 3 años de experiencia.',
             image: '/src/images/photos/anderson.jpeg',
             social: [
-              { name: 'linkedin', url: 'https://linkedin.com' },
-              { name: 'github', url: 'https://github.com' }
+              { name: 'linkedin', url: 'https://www.linkedin.com/in/anderson-cardona-ortiz-773959224/' },
+              { name: 'github', url: 'https://github.com/Ander1405' }
             ]
           }
         ]
@@ -366,33 +368,53 @@
         description: 'Our team consists of highly skilled Full Stack developers with experience in leading companies. We stand out by delivering optimal and competent solutions in the market, combining deep technical analysis with a solid understanding of the business. Each member of our team not only brings exceptional technical skills but also a true passion for technology and innovation. We focus on turning your projects and ideas into robust and scalable digital solutions. Technical excellence and commitment to our clients\' success are the pillars that drive us every day.',
         members: [
           {
-            name: 'Carlos Rodriguez',
-            position: 'CEO & Founder',
-            bio: 'With over 10 years of experience in web development and digital entrepreneurship. Passionate about creating technological solutions that solve real problems.',
-            image: '/placeholder.svg?height=300&width=300',
+            name: 'Valeria Granada Rodas',
+            position: 'Desarrollador Senior',
+            bio: 'With over 5 years of experience in web development. He holds a degree in website engineering from the Universidad de Antioquia.',
+            image: '/src/images/photos/vale.jpeg',
             social: [
-              { name: 'linkedin', url: 'https://linkedin.com' },
-              { name: 'twitter', url: 'https://twitter.com' }
+              { name: 'linkedin', url: 'https://www.linkedin.com/in/vale0722/' },
+              { name: 'github', url: 'https://github.com/vale0722' }
             ]
           },
           {
-            name: 'Maria Gonzalez',
-            position: 'UX/UI Design Director',
-            bio: 'Specialist in user-centered design with experience in large projects. Her approach combines aesthetics and functionality to create intuitive interfaces.',
-            image: '/placeholder.svg?height=300&width=300',
+            name: 'Alejandro Castrillon Ciro',
+            position: 'Desarrollador Middle',
+            bio: 'With over three years of experience in web development. Systems engineer graduated from the Universidad de Antioquia.',
+            image: '/src/images/photos/ciro.jpeg',
             social: [
-              { name: 'linkedin', url: 'https://linkedin.com' },
-              { name: 'twitter', url: 'https://twitter.com' }
+              { name: 'linkedin', url: 'https://www.linkedin.com/in/alejandro-castrillon-ciro-9539491ba/' },
+              { name: 'github', url: 'https://github.com/alejociro' }
             ]
           },
           {
-            name: 'Juan Perez',
-            position: 'Senior Developer',
-            bio: 'Expert in frontend and backend technologies. He has led the development of complex web applications for clients in various sectors.',
-            image: '/placeholder.svg?height=300&width=300',
+            name: 'Alejandro Cristancho',
+            position: 'Desarrollador Middle',
+            bio: 'Systems engineer from the Universidad de Antioquia, with more than 2 years of experience..',
+            image: '/src/images/photos/cristancho.jpeg',
             social: [
-              { name: 'linkedin', url: 'https://linkedin.com' },
-              { name: 'github', url: 'https://github.com' }
+              { name: 'linkedin', url: 'https://www.linkedin.com/in/alejandrocristm/' },
+              { name: 'github', url: 'https://github.com/AlejandroCristM' }
+            ]
+          },
+          {
+            name: 'Ana Maria Granada Rodas',
+            position: 'Desarrollador Middle',
+            bio: 'Systems engineering student at the Universidad de Antioquia, with more than 3 years of experience.',
+            image: '/src/images/photos/ana.jpeg',
+            social: [
+              { name: 'linkedin', url: 'https://www.linkedin.com/in/ana-maria-granada-rodas-945712244/' },
+              { name: 'github', url: 'https://github.com/ana2002granada' }
+            ]
+          },
+          {
+            name: 'Anderson Cardona Ortiz',
+            position: 'Desarrollador Middle',
+            bio: 'Systems engineering student at ITM, with more than 3 years of experience.',
+            image: '/src/images/photos/anderson.jpeg',
+            social: [
+              { name: 'linkedin', url: 'https://www.linkedin.com/in/anderson-cardona-ortiz-773959224/' },
+              { name: 'github', url: 'https://github.com/Ander1405' }
             ]
           }
         ]
