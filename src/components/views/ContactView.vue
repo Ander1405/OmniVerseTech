@@ -109,16 +109,16 @@
                                         <PhEnvelopeSimple :size="32"/>
                                         <span>{{ translations[currentLanguage].emailTitle }}</span>
                                     </div>
-                                    <span class="ml-8">dexel@gmail.com</span>
+                                    <span class="ml-8">dexelinfo@gmail.com</span>
                                 </div>
                             </div>
                             <div class="mt-12 ml-1.5">
                                 <h4 class="font-semibold mb-3">{{ translations[currentLanguage].socialLabel }}</h4>
                                 <div class="flex space-x-4">
-                                    <a href="https://facebook.com" target="_blank" class="text-white hover:text-gray-200 transition-colors duration-300">
+                                    <a href="https://www.instagram.com/dexeltechnology?utm_source=qr&igsh=ZXljbnBodmMwbm1q" target="_blank" class="text-white hover:text-gray-200 transition-colors duration-300">
                                         <PhInstagramLogo class="text-white" :size="32"/>
                                     </a>
-                                    <a href="https://linkedin.com" target="_blank" class="text-white hover:text-gray-200 transition-colors duration-300">
+                                    <a href="https://www.tiktok.com/@dexel.technology?_t=ZM-8uxk7S1703p&_r=1" target="_blank" class="text-white hover:text-gray-200 transition-colors duration-300">
                                         <PhTiktokLogo :size="32" />
                                     </a>
                                 </div>

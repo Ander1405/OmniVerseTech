@@ -45,7 +45,7 @@ provide('isDarkMode', isDarkMode);
 
 const logo = {
   text: 'Dexel',
-  alt: 'Dexel logo'
+  alt: 'Dexel Logo'
 };
 
 const menuItems = computed(() => [
@@ -69,23 +69,13 @@ const menuItems = computed(() => [
 
 const socialLinks = [
     {
-        name: 'Facebook',
-        href: 'https://facebook.com',
+        name: 'TikTok',
+        href: 'https://www.tiktok.com/@dexel.technology?_t=ZM-8uxk7S1703p&_r=1',
         icon: 'facebook'
     },
     {
-        name: 'Twitter',
-        href: 'https://twitter.com',
-        icon: 'twitter'
-    },
-    {
-        name: 'LinkedIn',
-        href: 'https://linkedin.com',
-        icon: 'linkedin'
-    },
-    {
         name: 'Instagram',
-        href: 'https://instagram.com',
+        href: 'https://www.instagram.com/dexeltechnology?utm_source=qr&igsh=ZXljbnBodmMwbm1q',
         icon: 'instagram'
     }
 ];
