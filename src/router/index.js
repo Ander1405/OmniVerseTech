@@ -14,7 +14,7 @@ const routes = [
     },
   },
   {
-    path: "/servicios",
+    path: "/services",
     name: "services",
     component: ServicesView,
     meta: {
@@ -22,7 +22,7 @@ const routes = [
     },
   },
    {
-  path: "/nosotros",
+  path: "/about",
     name: "about",
     component: AboutView,
     meta: {
@@ -30,7 +30,7 @@ const routes = [
   },
   },
   {
-    path: "/contacto",
+    path: "/contact",
     name: "contact",
     component: ContactView,
     meta: {

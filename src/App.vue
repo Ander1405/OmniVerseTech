@@ -55,15 +55,15 @@ const menuItems = computed(() => [
     },
     {
         name: currentLanguage.value === 'es' ? 'Servicios' : 'Services',
-        path: '/servicios'
+        path: '/services'
     },
     {
         name: currentLanguage.value === 'es' ? 'Nosotros' : 'About',
-        path: '/nosotros'
+        path: '/about'
     },
     {
         name: currentLanguage.value === 'es' ? 'Contacto' : 'Contact',
-        path: '/contacto'
+        path: '/contact'
     }
 ]);
 
