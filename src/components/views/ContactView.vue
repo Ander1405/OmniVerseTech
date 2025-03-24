@@ -96,52 +96,32 @@
                         </div>
                         <div class="w-full md:w-1/2 bg-primary p-8 md:p-12 text-white">
                             <h2 class="text-2xl font-bold mb-6">{{ translations[currentLanguage].contactInfoTitle }}</h2>
-                            <div class="space-y-6">
-                                <div class="flex items-start">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                    </svg>
-                                    <div>
-                                        <h4 class="font-semibold mb-1">{{ translations[currentLanguage].phoneLabel }}</h4>
-                                        <a href="tel:+11234567890" class="hover:underline">+1 (123) 456-7890</a>
+                            <div class="flex flex-col gap-y-6">
+                                <div>
+                                    <div class="flex items-center gap-x-1.5">
+                                        <PhPhone :size="32"/>
+                                        <span>Telefono de contacto</span>
                                     </div>
+                                    <span class="ml-8">+57 3117979834</span>
                                 </div>
-                                <div class="flex items-start">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                        <polyline points="22,6 12,13 2,6"></polyline>
-                                    </svg>
-                                    <div>
-                                        <h4 class="font-semibold mb-1">{{ translations[currentLanguage].emailLabel }}</h4>
-                                        <a href="mailto:info@omniversetech.com" class="hover:underline">info@omniversetech.com</a>
+                                <div>
+                                    <div class="flex items-center gap-x-1.5">
+                                        <PhEnvelopeSimple :size="32"/>
+                                        <span>Correo electronico</span>
                                     </div>
+                                    <span class="ml-8">dexel@gmail.com</span>
                                 </div>
                             </div>
-                            <div class="mt-12">
+                            <div class="mt-12 ml-1.5">
                                 <h4 class="font-semibold mb-3">{{ translations[currentLanguage].socialLabel }}</h4>
                                 <div class="flex space-x-4">
                                     <a href="https://facebook.com" target="_blank" class="text-white hover:text-gray-200 transition-colors duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                                        </svg>
-                                    </a>
-                                    <a href="https://twitter.com" target="_blank" class="text-white hover:text-gray-200 transition-colors duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                                        </svg>
+                                        <PhInstagramLogo class="text-white" :size="32"/>
                                     </a>
                                     <a href="https://linkedin.com" target="_blank" class="text-white hover:text-gray-200 transition-colors duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                            <rect x="2" y="9" width="4" height="12"></rect>
-                                            <circle cx="4" cy="4" r="2"></circle>
-                                        </svg>
+                                        <PhTiktokLogo :size="32" />
                                     </a>
                                 </div>
-                            </div>
-                            <div class="mt-12">
-                                <h4 class="font-semibold mb-3">{{ translations[currentLanguage].hoursLabel }}</h4>
-                                <p>{{ translations[currentLanguage].hoursText }}</p>
                             </div>
                         </div>
                     </div>
@@ -153,29 +133,29 @@
 
 <script setup>
 import { ref, reactive, inject, onMounted } from 'vue';
+import {PhEnvelopeSimple, PhInstagramLogo, PhPhone, PhTiktokLogo,} from "@phosphor-icons/vue";
 import { useRoute } from 'vue-router';
 
 const currentLanguage = inject('currentLanguage');
 const route = useRoute();
 
 const form = reactive({
-  name: '',
-  email: '',
-  service: '',
-  message: ''
+    name: '',
+    email: '',
+    service: '',
+    message: ''
 });
 
 onMounted(() => {
-  // Preseleccionar el servicio si viene en la URL
-  if (route.query.service) {
-    form.service = route.query.service;
-  }
+    if (route.query.service) {
+        form.service = route.query.service;
+    }
 });
 
 const errors = reactive({
-  name: '',
-  email: '',
-  message: ''
+    name: '',
+    email: '',
+    message: ''
 });
 const isSubmitting = ref(false);
 const formSubmitted = ref(false);
@@ -208,8 +188,6 @@ const translations = {
         phoneLabel: 'Teléfono',
         addressLabel: 'Dirección',
         socialLabel: 'Síguenos',
-        hoursLabel: 'Horario de atención',
-        hoursText: 'Lunes a Viernes: 9:00 AM - 6:00 PM (PST)'
     },
     en: {
         title: 'Contact Us',
@@ -238,8 +216,6 @@ const translations = {
         phoneLabel: 'Phone',
         addressLabel: 'Address',
         socialLabel: 'Follow us',
-        hoursLabel: 'Business Hours',
-        hoursText: 'Monday to Friday: 9:00 AM - 6:00 PM (PST)'
     }
 };
 
@@ -249,90 +225,80 @@ const validateEmail = (email) => {
 };
 
 const validateForm = () => {
-  let isValid = true;
-  
-  // Reset errors
-  errors.name = '';
-  errors.email = '';
-  errors.message = '';
-  
-  // Validate name
-  if (!form.name.trim()) {
-    errors.name = 'required';
-    isValid = false;
-  }
-  
-  // Validate email
-  if (!form.email.trim()) {
-    errors.email = 'required';
-    isValid = false;
-  } else if (!validateEmail(form.email)) {
-    errors.email = 'invalid';
-    isValid = false;
-  }
-  
-  // Validate message
-  if (!form.message.trim()) {
-    errors.message = 'required';
-    isValid = false;
-  }
-  
+    let isValid = true;
+    errors.name = '';
+    errors.email = '';
+    errors.message = '';
+
+    if (!form.name.trim()) {
+        errors.name = 'required';
+        isValid = false;
+    }
+
+    if (!form.email.trim()) {
+        errors.email = 'required';
+        isValid = false;
+    } else if (!validateEmail(form.email)) {
+        errors.email = 'invalid';
+        isValid = false;
+    }
+
+    if (!form.message.trim()) {
+        errors.message = 'required';
+        isValid = false;
+    }
+
   return isValid;
 };
 
 const submitForm = async () => {
-  if (validateForm()) {
-    isSubmitting.value = true;
-    
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Reset form
-      form.name = '';
-      form.email = '';
-      form.service = '';
-      form.message = '';
-      
-      // Show success message
-      formSubmitted.value = true;
-      
-      // Hide success message after 5 seconds
-      setTimeout(() => {
-        formSubmitted.value = false;
-      }, 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    } finally {
-      isSubmitting.value = false;
+    if (validateForm()) {
+        isSubmitting.value = true;
+
+        try {
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            form.name = '';
+            form.email = '';
+            form.service = '';
+            form.message = '';
+
+            formSubmitted.value = true;
+
+            setTimeout(() => {
+                formSubmitted.value = false;
+                }, 5000);
+        } catch (error) {
+            console.error('Error submitting form:', error);
+        } finally {
+            isSubmitting.value = false;
+        }
     }
-  }
 };
 </script>
 
 <script>
-// For SEO meta tags
 export default {
-  metaInfo() {
-    return {
-      title: this.currentLanguage === 'es' ? 'Contacto | OmniVerse Tech' : 'Contact | OmniVerse Tech',
-      meta: [
-        { 
-          name: 'description', 
-          content: this.currentLanguage === 'es' 
-            ? 'Contáctanos para solicitar una cotización o para más información sobre nuestros servicios de desarrollo web.' 
-            : 'Contact us to request a quote or for more information about our web development services.'
-        }
-      ]
-    };
-  }
+    metaInfo() {
+        return {
+            title: this.currentLanguage === 'es' ? 'Contacto | OmniVerse Tech' : 'Contact | OmniVerse Tech',
+            meta: [
+                {
+                    name: 'description',
+                    content: this.currentLanguage === 'es'
+                        ? 'Contáctanos para solicitar una cotización o para más información sobre nuestros servicios de desarrollo web.'
+                        : 'Contact us to request a quote or for more information about our web development services.'
+                }
+            ]
+        };
+    }
 }
 </script>
 
 <style scoped>
 .aspect-w-16 {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 56.25%;
 }
 
 .aspect-w-16 iframe {

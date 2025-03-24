@@ -51,7 +51,7 @@ provide('isDarkMode', isDarkMode);
 
 // Logo
 const logo = {
-  text: 'OmniVerse Tech',
+  text: 'Dexel',
   alt: 'OmniVerse Tech Logo'
 };
 
