@@ -259,7 +259,7 @@
       subtitle: 'Conoce quiénes somos y nuestra filosofía',
       mission: {
         title: 'Nuestra Misión',
-        text: 'En OmniVerse Tech, nuestra misión es impulsar la transformación digital de empresas y emprendedores, ofreciendo soluciones tecnológicas de vanguardia que maximicen su potencial en el mundo digital. Nos comprometemos a entregar productos de alta calidad, con un enfoque centrado en el usuario y resultados medibles.'
+        text: 'En Dexel, nuestra misión es impulsar la transformación digital de empresas y emprendedores, ofreciendo soluciones tecnológicas de vanguardia que maximicen su potencial en el mundo digital. Nos comprometemos a entregar productos de alta calidad, con un enfoque centrado en el usuario y resultados medibles.'
       },
       vision: {
         title: 'Nuestra Visión',
@@ -354,7 +354,7 @@
       subtitle: 'Learn who we are and our philosophy',
       mission: {
         title: 'Our Mission',
-        text: 'At OmniVerse Tech, our mission is to drive the digital transformation of businesses and entrepreneurs, offering cutting-edge technological solutions that maximize their potential in the digital world. We are committed to delivering high-quality products, with a user-centered approach and measurable results.'
+        text: 'At Dexel, our mission is to drive the digital transformation of businesses and entrepreneurs, offering cutting-edge technological solutions that maximize their potential in the digital world. We are committed to delivering high-quality products, with a user-centered approach and measurable results.'
       },
       vision: {
         title: 'Our Vision',
