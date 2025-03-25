@@ -276,7 +276,7 @@
             name: 'Valeria Granada Rodas',
             position: 'Desarrollador Senior',
             bio: 'Con más de 5 años de experiencia en desarrollo web. Ingeniera de sitemas de la Universidad de Antioquia.',
-            image: '/src/images/photos/vale.jpeg',
+            image: '/images/photos/vale.jpeg',
             social: [
               { name: 'linkedin', url: 'https://www.linkedin.com/in/vale0722/' },
               { name: 'github', url: 'https://github.com/vale0722' }
@@ -286,7 +286,7 @@
             name: 'Alejandro Castrillon Ciro',
             position: 'Desarrollador Middle',
             bio: 'Con más de 3 años de experiencia en desarrollo web. Ingeniero de sitemas graduado de la Universidad de Antioquia.',
-            image: '/src/images/photos/ciro.jpeg',
+            image: '/images/photos/ciro.jpeg',
             social: [
               { name: 'linkedin', url: 'https://www.linkedin.com/in/alejandro-castrillon-ciro-9539491ba/' },
               { name: 'github', url: 'https://github.com/alejociro' }
@@ -296,7 +296,7 @@
             name: 'Alejandro Cristancho',
             position: 'Desarrollador Middle',
             bio: 'Ingeniero de sistemas de la Universidad de Antioquia, con mas de 2 años de experiencia.',
-            image: '/src/images/photos/cristancho.jpeg',
+            image: '/images/photos/cristancho.jpeg',
             social: [
               { name: 'linkedin', url: 'https://www.linkedin.com/in/alejandrocristm/' },
               { name: 'github', url: 'https://github.com/AlejandroCristM' }
@@ -306,7 +306,7 @@
             name: 'Ana Maria Granada Rodas',
             position: 'Desarrollador Middle',
             bio: 'Estudiante de ingeniería de sistemas de la Universidad de Antioquia, con mas de 3 años de experiencia.',
-            image: '/src/images/photos/ana.jpeg',
+            image: '/images/photos/ana.jpeg',
             social: [
               { name: 'linkedin', url: 'https://www.linkedin.com/in/ana-maria-granada-rodas-945712244/' },
               { name: 'github', url: 'https://github.com/ana2002granada' }
@@ -316,7 +316,7 @@
             name: 'Anderson Cardona Ortiz',
             position: 'Desarrollador Middle',
             bio: 'Estudiante de ingeniería de sistemas del ITM, con mas de 3 años de experiencia.',
-            image: '/src/images/photos/anderson.jpeg',
+            image: '/images/photos/anderson.jpeg',
             social: [
               { name: 'linkedin', url: 'https://www.linkedin.com/in/anderson-cardona-ortiz-773959224/' },
               { name: 'github', url: 'https://github.com/Ander1405' }
@@ -371,7 +371,7 @@
             name: 'Valeria Granada Rodas',
             position: 'Desarrollador Senior',
             bio: 'With over 5 years of experience in web development. He holds a degree in website engineering from the Universidad de Antioquia.',
-            image: '/src/images/photos/vale.jpeg',
+            image: '/images/photos/vale.jpeg',
             social: [
               { name: 'linkedin', url: 'https://www.linkedin.com/in/vale0722/' },
               { name: 'github', url: 'https://github.com/vale0722' }
@@ -381,7 +381,7 @@
             name: 'Alejandro Castrillon Ciro',
             position: 'Desarrollador Middle',
             bio: 'With over three years of experience in web development. Systems engineer graduated from the Universidad de Antioquia.',
-            image: '/src/images/photos/ciro.jpeg',
+            image: '/images/photos/ciro.jpeg',
             social: [
               { name: 'linkedin', url: 'https://www.linkedin.com/in/alejandro-castrillon-ciro-9539491ba/' },
               { name: 'github', url: 'https://github.com/alejociro' }
@@ -391,7 +391,7 @@
             name: 'Alejandro Cristancho',
             position: 'Desarrollador Middle',
             bio: 'Systems engineer from the Universidad de Antioquia, with more than 2 years of experience..',
-            image: '/src/images/photos/cristancho.jpeg',
+            image: '/images/photos/cristancho.jpeg',
             social: [
               { name: 'linkedin', url: 'https://www.linkedin.com/in/alejandrocristm/' },
               { name: 'github', url: 'https://github.com/AlejandroCristM' }
@@ -401,7 +401,7 @@
             name: 'Ana Maria Granada Rodas',
             position: 'Desarrollador Middle',
             bio: 'Systems engineering student at the Universidad de Antioquia, with more than 3 years of experience.',
-            image: '/src/images/photos/ana.jpeg',
+            image: '/images/photos/ana.jpeg',
             social: [
               { name: 'linkedin', url: 'https://www.linkedin.com/in/ana-maria-granada-rodas-945712244/' },
               { name: 'github', url: 'https://github.com/ana2002granada' }
@@ -411,7 +411,7 @@
             name: 'Anderson Cardona Ortiz',
             position: 'Desarrollador Middle',
             bio: 'Systems engineering student at ITM, with more than 3 years of experience.',
-            image: '/src/images/photos/anderson.jpeg',
+            image: '/images/photos/anderson.jpeg',
             social: [
               { name: 'linkedin', url: 'https://www.linkedin.com/in/anderson-cardona-ortiz-773959224/' },
               { name: 'github', url: 'https://github.com/Ander1405' }
