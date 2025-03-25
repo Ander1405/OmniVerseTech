@@ -74,7 +74,7 @@
       
       <div class="text-center mt-12">
         <router-link 
-          to="/servicios" 
+          to="/services" 
           class="inline-flex items-center text-primary hover:text-primary-dark font-medium transition-colors duration-300"
         >
           {{ content.cta }}
