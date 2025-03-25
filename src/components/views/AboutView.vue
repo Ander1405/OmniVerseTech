@@ -275,7 +275,7 @@
           {
             name: 'Valeria Granada Rodas',
             position: 'Desarrollador Senior',
-            bio: 'Con más de 5 años de experiencia en desarrollo web. Ingeniera de sitemas de la Universidad de Antioquia.',
+            bio: 'Con más de 5 años de experiencia en desarrollo web. Ingeniera de sistemas de la Universidad de Antioquia.',
             image: '/images/photos/vale.jpeg',
             social: [
               { name: 'linkedin', url: 'https://www.linkedin.com/in/vale0722/' },
@@ -285,7 +285,7 @@
           {
             name: 'Alejandro Castrillon Ciro',
             position: 'Desarrollador Middle',
-            bio: 'Con más de 3 años de experiencia en desarrollo web. Ingeniero de sitemas graduado de la Universidad de Antioquia.',
+            bio: 'Con más de 3 años de experiencia en desarrollo web. Ingeniero de sistemas graduado de la Universidad de Antioquia.',
             image: '/images/photos/ciro.jpeg',
             social: [
               { name: 'linkedin', url: 'https://www.linkedin.com/in/alejandro-castrillon-ciro-9539491ba/' },
