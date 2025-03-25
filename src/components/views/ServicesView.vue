@@ -151,7 +151,7 @@ const translations = {
                     'Diseño responsivo',
                     'Formulario de contacto'
                 ],
-                image: '/src/images/services/webpage-cover.png'
+                image: '/images/services/webpage-cover.png'
             },
             {
                 id: 'sitio-web',
@@ -167,7 +167,7 @@ const translations = {
                     'Soporte para múltiples idiomas',
                     'Certificado SSL incluido'
                 ],
-                image: '/src/images/services/website.jpg'
+                image: '/images/services/website.jpg'
             },
             {
                 id: 'aplicacion-web',
@@ -184,7 +184,7 @@ const translations = {
                     'Soporte técnico post-lanzamiento',
                     'Tiempo de entrega según complejidad'
                 ],
-                image: '/src/images/services/web-applications.png'
+                image: '/images/services/web-applications.png'
             },
             {
                 id: 'generalServices',
@@ -201,7 +201,7 @@ const translations = {
                     'Integraciones con APIs y servicios externos',
                     'Soporte técnico post-lanzamiento',
                 ],
-                image: '/src/images/services/general-services.jpg'
+                image: '/images/services/general-services.jpg'
             }
 
         ],
@@ -242,7 +242,7 @@ const translations = {
                     'Responsive design',
                     'Contact form'
                 ],
-                image: '/src/images/services/webpage-cover.png'
+                image: '/images/services/webpage-cover.png'
             },
             {
                 id: 'sitio-web',
@@ -258,7 +258,7 @@ const translations = {
                     'Support for multiple languages',
                     'SSL certificate included'
                 ],
-                image: '/src/images/services/website.jpg'
+                image: '/images/services/website.jpg'
             },
             {
                 id: 'aplicacion-web',
@@ -275,7 +275,7 @@ const translations = {
                     'Post-launch technical support',
                     'Delivery time based on complexity'
                 ],
-                image: '/src/images/services/webaplications.jpg'
+                image: '/images/services/web-applications.png'
             },
             {
                 id: 'generalServices',
@@ -293,7 +293,7 @@ const translations = {
                     'Post-launch technical support',
                     'Delivery time based on complexity'
                 ],
-                image: '/src/images/services/general-services.jpg'
+                image: '/images/services/general-services.jpg'
             }
 
         ],
