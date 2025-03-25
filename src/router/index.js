@@ -31,6 +31,7 @@ const routes = [
   },
   {
     path: "/contact",
+    alias: "/contacto",
     name: "contact",
     component: ContactView,
     meta: {

@@ -8,7 +8,7 @@
                 </h1>
                 <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 animate-fade-in animation-delay-200">{{ content.subtitle }}</p>
                 <router-link
-                    to="/contacto"
+                    to="/contact"
                     class="inline-block px-8 py-4 bg-primary hover:bg-primary-dark text-white font-medium shadow-lg transform transition-all duration-300 hover:scale-105 animate-fade-in animation-delay-400 rounded-xl"
                 >
                     {{ content.cta }}
